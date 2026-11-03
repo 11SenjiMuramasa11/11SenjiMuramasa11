@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1227">
+  <title>Justine “Muramasa” Prades — Adventure Log</title>
+  <meta name="description" content="The Genshin-inspired portfolio and adventure log of Justine James Prades, a JavaScript and backend developer.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Muramasa adventure log, back to top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><use href="#icon-star"></use></svg>
+      </span>
+      <span class="brand-copy">
+        <strong>MURAMASA</strong>
+        <small>Adventure log</small>
+      </span>
+    </a>
+    <p class="topbar-note">A Genshin-inspired portfolio</p>
+    <a class="topbar-link" href="https://github.com/11SenjiMuramasa11" target="_blank" rel="noreferrer" data-link="github">
+      <span>GitHub</span>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+    </a>
+  </header>
+
+  <main class="stage" id="main">
+    <div class="book">
+      <section class="page page--profile" aria-labelledby="profile-title">
+        <div class="namecard-hero">
+          <svg class="hero-art" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="hero-sky" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#08132f"></stop>
+                <stop offset=".48" stop-color="#173474"></stop>
+                <stop offset="1" stop-color="#0a1638"></stop>
+              </linearGradient>
+              <radialGradient id="hero-glow" cx="50%" cy="48%" r="50%">
+                <stop offset="0" stop-color="#f8dda0" stop-opacity=".38"></stop>
+                <stop offset=".42" stop-color="#9bc4ff" stop-opacity=".17"></stop>
+                <stop offset="1" stop-color="#9bc4ff" stop-opacity="0"></stop>
+              </radialGradient>
+              <linearGradient id="hero-ribbon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8db7ff" stop-opacity="0"></stop>
+                <stop offset=".45" stop-color="#b9d2ff" stop-opacity=".8"></stop>
+                <stop offset="1" stop-color="#8db7ff" stop-opacity="0"></stop>
+              </linearGradient>
+              <linearGradient id="hero-moon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff8d9" stop-opacity=".34"></stop>
+                <stop offset="1" stop-color="#b3ccff" stop-opacity=".04"></stop>
+              </linearGradient>
+            </defs>
+
+            <rect width="600" height="380" fill="url(#hero-sky)"></rect>
+            <circle cx="300" cy="160" r="210" fill="url(#hero-glow)"></circle>
+
+            <g class="hero-moon">
+              <circle cx="482" cy="92" r="112" fill="url(#hero-moon)"></circle>
+              <path d="M527 -5C468 2 422 53 422 114c0 63 51 114 114 114 20 0 39-5 55-14-77 3-139-54-139-125 0-38 18-73 46-96 10-7 20-12 29-15Z" fill="#eaf2ff" opacity=".15"></path>
+              <circle cx="482" cy="92" r="87" fill="none" stroke="#dce9ff" stroke-opacity=".17"></circle>
+            </g>
+
+            <g class="hero-ribbons" fill="none" stroke="url(#hero-ribbon)" stroke-width="1.2">
+              <path d="M-60 276C62 218 138 312 258 242S462 150 660 218"></path>
+              <path d="M-50 314C72 256 156 348 286 276S488 194 660 258"></path>
+              <path d="M-40 350C92 296 188 374 318 314S516 238 660 296"></path>
+              <path d="M-30 226C86 174 168 242 278 188S462 128 650 180"></path>
+            </g>
+
+            <g class="hero-constellation" fill="none" stroke="#b5d0ff" stroke-width="1" opacity=".72">
+              <path d="M46 62 96 98 146 59 188 103"></path>
+              <path d="M414 42 452 76 499 58 532 92"></path>
+              <path d="M72 188 104 210 143 195 174 224"></path>
+              <path d="M394 206 428 186 460 212 492 196"></path>
+            </g>
+            <g fill="#ecf4ff">
+              <use class="twinkle" href="#star4" transform="translate(46 62) scale(.55)"></use>
+              <use class="twinkle" href="#star4" transform="translate(146 59) scale(.38)" style="animation-delay: -1.6s"></use>
+              <use class="twinkle" href="#star4" transform="translate(532 92) scale(.44)" style="animation-delay: -3.2s"></use>
+              <use class="twinkle" href="#star4" transform="translate(174 224) scale(.32)" style="animation-delay: -4.1s"></use>
+              <use class="twinkle" href="#star4" transform="translate(460 212) scale(.5)" style="animation-delay: -2.3s"></use>
+              <circle cx="96" cy="98" r="1.8"></circle>
+              <circle cx="188" cy="103" r="1.3"></circle>
+              <circle cx="414" cy="42" r="1.5"></circle>
+              <circle cx="499" cy="58" r="1.9"></circle>
+              <circle cx="104" cy="210" r="1.4"></circle>
+              <circle cx="394" cy="206" r="1.8"></circle>
+              <circle cx="492" cy="196" r="1.2"></circle>
+              <circle cx="242" cy="74" r="1.1" opacity=".7"></circle>
+              <circle cx="355" cy="132" r="1.4" opacity=".6"></circle>
+              <circle cx="72" cy="144" r="1.2" opacity=".55"></circle>
+              <circle cx="542" cy="170" r="1.1" opacity=".5"></circle>
+            </g>
+
+            <g class="hero-arcs" fill="none" stroke="#e5c982" stroke-opacity=".3">
+              <circle cx="300" cy="151" r="112"></circle>
+              <circle cx="300" cy="151" r="126" stroke-dasharray="2 9"></circle>
+              <path d="M186 151a114 114 0 0 1 228 0"></path>
+            </g>
+
+            <g class="hero-islands" fill="#081027">
+              <path d="M0 332c54-22 92 2 137-12 46-14 72 12 118 3 54-11 83-35 137-24 55 11 83 32 132 18 28-8 54-4 76 8v55H0Z" opacity=".72"></path>
+              <path d="M0 352c78-17 118 10 192-3 74-13 121 12 196 1 71-11 126-2 212 9v21H0Z" opacity=".9"></path>
+            </g>
+            <g fill="#101e48" opacity=".64">
+              <path d="M44 300c13-37 31-57 52-60 22 10 30 29 35 60Z"></path>
+              <path d="M459 298c15-44 36-61 54-64 21 12 33 34 41 64Z"></path>
+            </g>
+
+            <g class="hero-petals" fill="#f4bfd0">
+              <path d="M0 0c4-7 11-7 14 0-3 7-10 7-14 0Z" transform="translate(82 112) rotate(-24) scale(.9)"></path>
+              <path d="M0 0c4-7 11-7 14 0-3 7-10 7-14 0Z" transform="translate(516 146) rotate(36) scale(.72)"></path>
+              <path d="M0 0c4-7 11-7 14 0-3 7-10 7-14 0Z" transform="translate(158 268) rotate(14) scale(.55)"></path>
+              <path d="M0 0c4-7 11-7 14 0-3 7-10 7-14 0Z" transform="translate(430 282) rotate(-18) scale(.68)"></path>
+              <path d="M0 0c4-7 11-7 14 0-3 7-10 7-14 0Z" transform="translate(366 66) rotate(52) scale(.45)"></path>
+            </g>
+          </svg>
+
+          <div class="namecard-chrome">
+            <span class="namecard-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="profile-handle">GITHUB <span data-field="handle">@11SenjiMuramasa11</span></span>
+            <span class="namecard-server" aria-hidden="true">DEV</span>
+          </div>
+
+          <div class="hero-portrait">
+            <div class="portrait-ring">
+              <img src="assets/avatar-cropped.png" alt="GitHub avatar of Justine James Prades" width="160" height="160" data-avatar>
+            </div>
+          </div>
+
+          <div class="hero-identity">
+            <h1 id="profile-title">
+              <span class="hero-alias" data-field="alias">Muramasa</span>
+              <span class="hero-name" data-field="name">Justine James Prades</span>
+            </h1>
+            <p class="hero-role" data-field="role">Backend developer in progress</p>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <div class="rank-bars">
+            <div class="rank-bar rank-bar--green">
+              <span>Days on GitHub</span>
+              <strong data-field="daysActive">526</strong>
+            </div>
+            <div class="rank-bar rank-bar--tan">
+              <span>Projects built</span>
+              <strong data-field="projectsBuilt">3</strong>
+            </div>
+          </div>
+
+          <p class="signature" data-field="signature">I turn ideas into REST APIs — currently leveling up one endpoint at a time.</p>
+
+          <dl class="ledger" id="ledger" aria-label="Developer record"></dl>
+
+          <div class="profile-actions">
+            <a class="button button--gold" href="https://github.com/11SenjiMuramasa11" target="_blank" rel="noreferrer" data-link="github">
+              <span>View GitHub</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+            </a>
+            <button class="button button--ghost" type="button" data-tab-target="projects">
+              <span>Open projects</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+            <a class="button button--ghost" href="#" data-link="resume" hidden>
+              <span>Résumé</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page page--content" aria-label="Namecard and project details">
+        <div class="tab-shell">
+          <div class="tablist" role="tablist" aria-label="Profile sections" data-active="0">
+            <span class="tab-indicator" aria-hidden="true"></span>
+            <button class="tab is-active" id="tab-namecard" type="button" role="tab" aria-selected="true" aria-controls="panel-namecard" tabindex="0">Namecard</button>
+            <button class="tab" id="tab-projects" type="button" role="tab" aria-selected="false" aria-controls="panel-projects" tabindex="-1">Projects</button>
+          </div>
+        </div>
+
+        <div class="panel-wrap">
+          <section class="panel is-active" id="panel-namecard" role="tabpanel" aria-labelledby="tab-namecard" tabindex="0">
+            <header class="panel-head">
+              <h2>A developer’s adventure log</h2>
+              <p class="lede" data-field="bio">I’m Justine, a JavaScript developer who learns by building. My current quest is backend development: REST APIs, relational databases, and the clean structure that holds them together.</p>
+            </header>
+
+            <div class="stat-strip" id="stat-strip" aria-label="At a glance"></div>
+
+            <div class="section-heading">
+              <h3>Equipment</h3>
+              <p>Tap a namecard to inspect it.</p>
+            </div>
+            <div class="namecard-grid" id="skill-grid" aria-label="Tools and skills"></div>
+
+            <div class="bottom-grid">
+              <div class="quest-card">
+                <p class="card-kicker">Current quest</p>
+                <h3>Cleaner backend structure</h3>
+                <p>Authentication, reusable middleware, and a project layout that stays readable as an API grows.</p>
+                <a href="https://github.com/11SenjiMuramasa11" target="_blank" rel="noreferrer" data-link="github">
+                  Follow the build
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+                </a>
+              </div>
+              <div class="contact-card">
+                <p class="card-kicker">Find me</p>
+                <h3>On the network</h3>
+                <a href="https://github.com/11SenjiMuramasa11" target="_blank" rel="noreferrer" data-link="github">
+                  <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#icon-github"></use></svg></span>
+                  <span><strong>GitHub</strong><small data-field="handle">@11SenjiMuramasa11</small></span>
+                  <svg class="contact-arrow" viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+                </a>
+                <a href="#" data-link="email" hidden>
+                  <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#icon-mail"></use></svg></span>
+                  <span><strong>Email</strong><small data-field="email"></small></span>
+                  <svg class="contact-arrow" viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0" hidden>
+            <header class="panel-head">
+              <h2>Quests completed</h2>
+              <p class="lede">Two backend APIs, built with Node.js, Express, and MySQL. Pick a card to inspect the build.</p>
+            </header>
+
+            <div class="project-grid" id="project-grid" aria-label="Projects"></div>
+
+            <div class="adventure-log">
+              <div class="section-heading">
+                <h3>Adventure log</h3>
+                <p>The short version.</p>
+              </div>
+              <ol id="log-list"></ol>
+            </div>
+          </section>
+        </div>
+
+        <footer class="page-foot">
+          <span>Fan-made portfolio</span>
+          <span>Genshin Impact is a trademark of HoYoverse.</span>
+        </footer>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with vanilla HTML, CSS, and JavaScript. No game art was copied or hotlinked.</p>
+    <p>Genshin Impact-inspired. Not affiliated with HoYoverse.</p>
+  </footer>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="detail-frame">
+      <button class="detail-close" type="button" aria-label="Close details">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="detail-art" id="detail-art" aria-hidden="true"></div>
+      <div class="detail-body">
+        <p class="detail-kicker" id="detail-kicker"></p>
+        <h2 id="detail-title"></h2>
+        <p class="detail-summary" id="detail-summary"></p>
+        <div class="chip-row" id="detail-chips"></div>
+        <ul class="detail-list" id="detail-list"></ul>
+        <p class="detail-note" id="detail-note"></p>
+        <a class="button button--gold" id="detail-link" href="#" target="_blank" rel="noreferrer" hidden>
+          <span>View repository</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#icon-external"></use></svg>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <noscript>
+    <p class="noscript">This portfolio uses JavaScript for its interactive project archive. You can still browse the work on <a href="https://github.com/11SenjiMuramasa11">GitHub</a>.</p>
+  </noscript>
+
+  <svg class="svg-sprite" aria-hidden="true" width="0" height="0">
+    <defs>
+      <path id="star4" d="M0-9C1.2-3.4 3.4-1.2 9 0 3.4 1.2 1.2 3.4 0 9-1.2 3.4-3.4 1.2-9 0-3.4-1.2-1.2-3.4 0-9Z"></path>
+
+      <linearGradient id="g-js" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2c2416"></stop><stop offset=".55" stop-color="#7a5726"></stop><stop offset="1" stop-color="#3a2a13"></stop>
+      </linearGradient>
+      <linearGradient id="g-node" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#112b22"></stop><stop offset=".55" stop-color="#1f6648"></stop><stop offset="1" stop-color="#0c2019"></stop>
+      </linearGradient>
+      <linearGradient id="g-express" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#18262e"></stop><stop offset=".55" stop-color="#365664"></stop><stop offset="1" stop-color="#111e26"></stop>
+      </linearGradient>
+      <linearGradient id="g-mysql" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0d2237"></stop><stop offset=".55" stop-color="#165a88"></stop><stop offset="1" stop-color="#08192a"></stop>
+      </linearGradient>
+      <linearGradient id="g-rest" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#102b2b"></stop><stop offset=".55" stop-color="#1e6d66"></stop><stop offset="1" stop-color="#0a1f20"></stop>
+      </linearGradient>
+      <linearGradient id="g-git" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#341a13"></stop><stop offset=".55" stop-color="#9a3f24"></stop><stop offset="1" stop-color="#2a130f"></stop>
+      </linearGradient>
+      <linearGradient id="g-github" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#1d1737"></stop><stop offset=".55" stop-color="#493d78"></stop><stop offset="1" stop-color="#151129"></stop>
+      </linearGradient>
+      <linearGradient id="g-backend" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#24143a"></stop><stop offset=".55" stop-color="#5d3b8a"></stop><stop offset="1" stop-color="#170d28"></stop>
+      </linearGradient>
+      <linearGradient id="g-music" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#082b3a"></stop><stop offset=".55" stop-color="#126b7e"></stop><stop offset="1" stop-color="#071f2d"></stop>
+      </linearGradient>
+      <linearGradient id="g-student" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#3a2a12"></stop><stop offset=".55" stop-color="#9b7332"></stop><stop offset="1" stop-color="#2e2110"></stop>
+      </linearGradient>
+      <linearGradient id="g-portfolio" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#171a42"></stop><stop offset=".55" stop-color="#3e4b94"></stop><stop offset="1" stop-color="#101330"></stop>
+      </linearGradient>
+    </defs>
+
+    <symbol id="art-js" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-js)"></rect>
+      <g fill="none" stroke="#ffe4a1" opacity=".22">
+        <path d="M-20 104 80-12M24 132 124 16M76 140 176 24"></path><path d="M-12 28 188 112M-6 66 178 138"></path>
+      </g>
+      <g transform="translate(100 60)">
+        <rect x="-42" y="-42" width="84" height="84" rx="13" fill="#d2a550" opacity=".92" transform="rotate(45)"></rect>
+        <rect x="-31" y="-31" width="62" height="62" rx="8" fill="none" stroke="#fff0c2" stroke-width="1.4" transform="rotate(45)"></rect>
+        <rect x="-17" y="-17" width="34" height="34" rx="5" fill="#35240f" opacity=".72" transform="rotate(45)"></rect>
+        <circle r="4" fill="#fff3c9"></circle>
+      </g>
+      <g fill="#ffe9b0"><use href="#star4" transform="translate(37 30) scale(.55)"></use><use href="#star4" transform="translate(164 88) scale(.4)"></use><circle cx="158" cy="26" r="1.6"></circle><circle cx="31" cy="88" r="1.4"></circle></g>
+    </symbol>
+
+    <symbol id="art-node" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-node)"></rect>
+      <g fill="none" stroke="#9ef0c1" opacity=".24"><path d="M-10 30H210M-10 60H210M-10 90H210M40-10V130M100-10V130M160-10V130"></path></g>
+      <g transform="translate(100 59)">
+        <path d="M0-43 37-22V22L0 43-37 22V-22Z" fill="#1c5f44" stroke="#b4f5cf" stroke-width="1.3"></path>
+        <path d="M0-23C25-10 21 17 0 29-8 11-8-7 0-23Z" fill="#d7ffe7" opacity=".88"></path>
+        <path d="M0-12V23" stroke="#2d8b63" stroke-width="1.2"></path>
+      </g>
+      <g fill="#b4f5cf"><circle cx="58" cy="27" r="2"></circle><circle cx="148" cy="34" r="1.5"></circle><circle cx="42" cy="91" r="1.3"></circle><circle cx="160" cy="92" r="1.8"></circle><use href="#star4" transform="translate(166 22) scale(.4)"></use></g>
+    </symbol>
+
+    <symbol id="art-express" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-express)"></rect>
+      <g fill="none" stroke="#bdece9" stroke-width="1.8" opacity=".78">
+        <path d="M24 33C77 8 126 50 180 24"></path><path d="M16 61C70 35 124 78 186 50"></path><path d="M30 88C82 62 136 104 180 76"></path>
+      </g>
+      <g fill="none" stroke="#7dd9d1" opacity=".3"><circle cx="100" cy="60" r="48"></circle><circle cx="100" cy="60" r="35" stroke-dasharray="2 7"></circle></g>
+      <g fill="#9fe6e1"><circle cx="24" cy="33" r="2.4"></circle><circle cx="180" cy="24" r="2.4"></circle><circle cx="16" cy="61" r="1.7"></circle><circle cx="186" cy="50" r="1.7"></circle><circle cx="30" cy="88" r="2"></circle><circle cx="180" cy="76" r="2"></circle></g>
+      <path d="M139 15 160 24 139 33" fill="none" stroke="#dff9f7" stroke-width="1.6"></path>
+      <use href="#star4" transform="translate(55 52) scale(.34)" fill="#e8fffd"></use>
+    </symbol>
+
+    <symbol id="art-mysql" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-mysql)"></rect>
+      <g fill="none" stroke="#a9ddff" opacity=".22"><path d="M-10 24C30 4 58 38 98 20S164 4 210 22"></path><path d="M-10 104C34 82 62 116 104 98S170 82 210 100"></path><path d="M-10 64C34 42 64 76 104 58S170 42 210 60"></path></g>
+      <g transform="translate(100 61)">
+        <ellipse cy="-27" rx="47" ry="13" fill="#286a98" stroke="#c2ecff" stroke-width="1.2"></ellipse>
+        <path d="M-47-27V24C-47 32-26 38 0 38S47 32 47 24V-27" fill="#153e60" stroke="#c2ecff" stroke-width="1.2"></path>
+        <ellipse cy="24" rx="47" ry="13" fill="#215b82" opacity=".8" stroke="#c2ecff" stroke-opacity=".55"></ellipse>
+        <path d="M-47 0C-47 8-26 14 0 14S47 8 47 0" fill="none" stroke="#c2ecff" opacity=".55"></path>
+      </g>
+      <g fill="#bde8ff"><use href="#star4" transform="translate(38 34) scale(.4)"></use><use href="#star4" transform="translate(161 88) scale(.32)"></use><circle cx="160" cy="30" r="1.4"></circle><circle cx="43" cy="91" r="1.6"></circle></g>
+    </symbol>
+
+    <symbol id="art-rest" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-rest)"></rect>
+      <g fill="none" stroke="#a9ece2" opacity=".35"><circle cx="100" cy="60" r="48"></circle><circle cx="100" cy="60" r="36" stroke-dasharray="2 6"></circle><circle cx="100" cy="60" r="58" stroke-dasharray="1 12"></circle></g>
+      <g transform="translate(100 60)">
+        <path d="M0-51 12-12 51 0 12 12 0 51-12 12-51 0-12-12Z" fill="#dfc57e" opacity=".88"></path>
+        <path d="M0-34 7-7 34 0 7 7 0 34-7 7-34 0-7-7Z" fill="#123c3a"></path>
+        <circle r="4" fill="#fff2c7"></circle>
+      </g>
+      <g fill="#b6f1e8"><circle cx="100" cy="12" r="2"></circle><circle cx="148" cy="60" r="1.7"></circle><circle cx="100" cy="108" r="1.7"></circle><circle cx="52" cy="60" r="2"></circle></g>
+      <use href="#star4" transform="translate(42 26) scale(.3)" fill="#e8fff9"></use>
+    </symbol>
+
+    <symbol id="art-git" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-git)"></rect>
+      <g fill="none" stroke="#ffd39a" stroke-width="2" opacity=".85"><path d="M70 19V101"></path><path d="M70 50C103 50 100 78 132 78"></path><path d="M70 66C103 66 100 38 132 38"></path></g>
+      <g fill="#ffd39a"><circle cx="70" cy="19" r="7"></circle><circle cx="70" cy="50" r="5"></circle><circle cx="70" cy="66" r="5"></circle><circle cx="70" cy="101" r="7"></circle><circle cx="132" cy="78" r="6"></circle><circle cx="132" cy="38" r="6"></circle></g>
+      <g fill="#ffb36e"><use href="#star4" transform="translate(45 30) scale(.4)"></use><use href="#star4" transform="translate(158 67) scale(.55)"></use><circle cx="39" cy="82" r="1.5"></circle><circle cx="163" cy="27" r="1.8"></circle></g>
+      <g fill="none" stroke="#ffd39a" opacity=".16"><path d="M-10 20 210 100M-10 100 210 20"></path></g>
+    </symbol>
+
+    <symbol id="art-github" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-github)"></rect>
+      <g fill="none" stroke="#cabdff" opacity=".55"><path d="M100 12V108M52 34 148 86M52 86 148 34"></path><circle cx="100" cy="60" r="30"></circle><circle cx="100" cy="60" r="45" stroke-dasharray="2 8"></circle></g>
+      <g transform="translate(100 60)">
+        <path d="M-29-11-21-30-7-16 7-16 21-30 29-11" fill="none" stroke="#e4dbff" stroke-width="1.4"></path>
+        <path d="M-25-2C-25 18-12 29 0 29S25 18 25-2" fill="#211a43" stroke="#e4dbff" stroke-width="1.2"></path>
+        <circle cx="-9" cy="1" r="2.2" fill="#e4dbff"></circle><circle cx="9" cy="1" r="2.2" fill="#e4dbff"></circle>
+        <path d="M-4 10C-1 12 1 12 4 10" fill="none" stroke="#e4dbff" stroke-width="1.2"></path>
+      </g>
+      <g fill="#d9ceff"><use href="#star4" transform="translate(38 29) scale(.38)"></use><use href="#star4" transform="translate(160 91) scale(.45)"></use><circle cx="164" cy="28" r="1.3"></circle><circle cx="37" cy="92" r="1.4"></circle></g>
+    </symbol>
+
+    <symbol id="art-backend" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-backend)"></rect>
+      <g fill="none" stroke="#d2bfff" opacity=".28"><path d="M20 96V34H180V96M36 96V48H164V96M52 96V62H148V96"></path></g>
+      <g transform="translate(100 60)">
+        <rect x="-44" y="-36" width="88" height="22" rx="4" fill="#2d2052" stroke="#cdb5ff" stroke-width="1.1"></rect>
+        <rect x="-44" y="-7" width="88" height="22" rx="4" fill="#3b2968" stroke="#cdb5ff" stroke-width="1.1"></rect>
+        <rect x="-44" y="22" width="88" height="22" rx="4" fill="#2d2052" stroke="#cdb5ff" stroke-width="1.1"></rect>
+        <circle cx="-31" cy="-25" r="3" fill="#a9f0ce"></circle><circle cx="-31" cy="4" r="3" fill="#f1d184"></circle><circle cx="-31" cy="33" r="3" fill="#f2b7c9"></circle>
+        <path d="M-14-25H31M-14 4H31M-14 33H31" stroke="#cdb5ff" opacity=".55"></path>
+      </g>
+      <g fill="#ddceff"><use href="#star4" transform="translate(42 30) scale(.34)"></use><use href="#star4" transform="translate(160 90) scale(.4)"></use></g>
+    </symbol>
+
+    <symbol id="art-music" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-music)"></rect>
+      <g fill="none" stroke="#b9f5ef" opacity=".24"><path d="M-10 27C30 7 62 41 102 23S166 7 210 25"></path><path d="M-10 95C30 75 62 109 102 91S166 75 210 93"></path></g>
+      <g fill="none" stroke="#c7fbf6" stroke-width="1.4" opacity=".6"><path d="M54 39H148M54 49H148M54 59H148M54 69H148M54 79H148"></path></g>
+      <g transform="translate(91 58) rotate(-8)">
+        <path d="M0 0V-40C17-37 28-28 28-13" fill="none" stroke="#f8e5a8" stroke-width="2.5"></path>
+        <ellipse cx="-4" cy="2" rx="11" ry="7" fill="#f3d989" transform="rotate(-16)"></ellipse>
+        <path d="M38 7V-27C51-24 58-17 58-6" fill="none" stroke="#f8e5a8" stroke-width="2"></path>
+        <ellipse cx="34" cy="9" rx="9" ry="6" fill="#f3d989" transform="rotate(-16)"></ellipse>
+      </g>
+      <g fill="none" stroke="#9fe9e1" opacity=".55"><circle cx="148" cy="46" r="24"></circle><circle cx="148" cy="46" r="17" stroke-dasharray="2 5"></circle></g>
+      <g fill="#d7fffb"><use href="#star4" transform="translate(42 30) scale(.42)"></use><circle cx="162" cy="86" r="1.5"></circle></g>
+    </symbol>
+
+    <symbol id="art-student" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-student)"></rect>
+      <g fill="none" stroke="#ffe2a6" opacity=".2"><path d="M-10 22H210M-10 100H210M28-10V130M172-10V130"></path></g>
+      <g transform="translate(100 60)">
+        <rect x="-48" y="-35" width="96" height="70" rx="3" fill="#f3e2b6" opacity=".94"></rect>
+        <path d="M-48-35H48V-25H-48Z" fill="#bb8e46"></path>
+        <path d="M-33-9H31M-33 3H24M-33 15H33" stroke="#8b6a30" stroke-width="1.7" opacity=".75"></path>
+        <circle cx="31" cy="16" r="9" fill="none" stroke="#b27c2f" stroke-width="1.4"></circle>
+        <use href="#star4" transform="translate(31 16) scale(.34)" fill="#b27c2f"></use>
+      </g>
+      <g fill="none" stroke="#f5d089" opacity=".55"><path d="M35 91C22 76 22 54 33 39M165 29C178 44 178 66 167 81"></path><path d="M33 39l-6 11M33 39l8 9M167 81l6-11M167 81l-8-9"></path></g>
+      <g fill="#ffe7b3"><use href="#star4" transform="translate(39 27) scale(.34)"></use><use href="#star4" transform="translate(161 93) scale(.36)"></use></g>
+    </symbol>
+
+    <symbol id="art-portfolio" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="url(#g-portfolio)"></rect>
+      <g fill="none" stroke="#bdc9ff" opacity=".2"><circle cx="100" cy="60" r="52"></circle><path d="M20 20 180 100M20 100 180 20"></path></g>
+      <g transform="translate(100 61)">
+        <path d="M-58-25C-38-36-14-31 0-18 14-31 38-36 58-25V34C38 24 14 30 0 41-14 30-38 24-58 34Z" fill="#f2e7c7" stroke="#d7bd7d" stroke-width="1.2"></path>
+        <path d="M0-18V41" stroke="#b49559" stroke-width="1.2"></path>
+        <path d="M-49-17C-33-23-16-19-7-10M-49-7C-33-13-16-9-7 0M-49 3C-33-3-16 1-7 10M49-17C33-23 16-19 7-10M49-7C33-13 16-9 7 0M49 3C33-3 16 1 7 10" fill="none" stroke="#9d875f" opacity=".65"></path>
+        <use href="#star4" transform="translate(0-32) scale(.45)" fill="#d8b566"></use>
+      </g>
+      <g fill="#dbe3ff"><use href="#star4" transform="translate(36 31) scale(.45)"></use><use href="#star4" transform="translate(162 90) scale(.34)"></use><circle cx="162" cy="32" r="1.5"></circle><circle cx="38" cy="89" r="1.4"></circle></g>
+    </symbol>
+
+    <symbol id="icon-star" viewBox="0 0 20 20">
+      <path d="m10 1.8 2.45 5.1 5.55.78-4.05 3.94.99 5.58L10 14.54 5.06 17.2l.99-5.58L2 7.68l5.55-.78Z" fill="currentColor"></path>
+    </symbol>
+    <symbol id="icon-api" viewBox="0 0 20 20">
+      <path d="M7.5 3.2c-2 0-2.6 1-2.6 2.4v1.8c0 1.5-.6 2.2-2 2.6 1.4.4 2 1.1 2 2.6v1.8c0 1.4.6 2.4 2.6 2.4M12.5 3.2c2 0 2.6 1 2.6 2.4v1.8c0 1.5.6 2.2 2 2.6-1.4.4-2 1.1-2 2.6v1.8c0 1.4-.6 2.4-2.6 2.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+    </symbol>
+    <symbol id="icon-code" viewBox="0 0 20 20">
+      <path d="m7.2 5.1-4.6 4.9 4.6 4.9M12.8 5.1l4.6 4.9-4.6 4.9M11.4 3.4 8.6 16.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 20 20">
+      <path d="M3 4.3c2.4-1 4.6-.7 7 .8 2.4-1.5 4.6-1.8 7-.8v10.9c-2.4-1-4.6-.7-7 .8-2.4-1.5-4.6-1.8-7-.8ZM10 5.1v10.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="icon-external" viewBox="0 0 20 20">
+      <path d="M11 4h5v5M16 4l-7 7M15 11.5v3.2c0 .7-.6 1.3-1.3 1.3H5.3c-.7 0-1.3-.6-1.3-1.3V6.3c0-.7.6-1.3 1.3-1.3h3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 20 20">
+      <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 20 20">
+      <path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 20 20">
+      <path d="M10 1.8a8.3 8.3 0 0 0-2.6 16.2c.4.1.6-.2.6-.4v-1.5c-2.3.5-2.8-1-2.8-1-.4-1-.9-1.2-.9-1.2-.8-.5.1-.5.1-.5.8.1 1.3.9 1.3.9.7 1.3 1.9 1 2.4.8.1-.6.3-1 .6-1.2-1.9-.2-3.8-.9-3.8-4.1 0-.9.3-1.6.9-2.2-.1-.2-.4-1.1.1-2.2 0 0 .7-.2 2.3.8a7.9 7.9 0 0 1 4.2 0c1.6-1 2.3-.8 2.3-.8.5 1.1.2 2 .1 2.2.6.6.9 1.3.9 2.2 0 3.2-1.9 3.9-3.8 4.1.3.3.6.8.6 1.6v2.4c0 .2.2.5.6.4A8.3 8.3 0 0 0 10 1.8Z" fill="currentColor"></path>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 20 20">
+      <path d="M3 5h14v10H3Zm0 .5 7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 20 20">
+      <path d="M10 3v14M3 10h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+    </symbol>
+  </svg>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

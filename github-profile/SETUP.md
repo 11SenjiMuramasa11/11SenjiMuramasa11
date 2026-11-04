@@ -1,25 +1,42 @@
-# Publish the GitHub profile README
+# Publish the GitHub profile + portfolio
 
-`README.md` beside this file is the content that appears on your GitHub profile. `avatar-circle.png` is the centered circular portrait at the top of it.
+Two things ship together: the profile README and the portfolio site it links to.
 
-1. Create a **public** repository named exactly `11SenjiMuramasa11` (same as your username). If it already exists, use that one.
-2. Copy `README.md` and `avatar-circle.png` into that repository, side by side.
-3. Commit and push.
-4. Open <https://github.com/11SenjiMuramasa11>. GitHub shows the README above your repositories.
+## 1. Portfolio site (GitHub Pages)
 
-Keep the two files in the same folder so `./avatar-circle.png` resolves. Do not copy this `SETUP.md` file unless you want it public.
+The site lives in `site/` — React + Vite + Motion. It deploys from `.github/workflows/deploy-site.yml`.
 
-## About the repo README
+1. In `11SenjiMuramasa11/11SenjiMuramasa11`, open **Settings → Pages**.
+2. Set **Source** to **GitHub Actions**.
+3. Push to `main` (or run the **Deploy portfolio** workflow manually).
+4. Live at <https://11senjimuramasa11.github.io/11SenjiMuramasa11/>.
 
-GitHub renders only the root `README.md` as the profile. A second root README would replace it, not sit beside it. The line at the bottom of `README.md` ("This repository is the source of my GitHub profile README") is the repo explanation, kept small so the profile still reads as a portfolio.
+Local check:
 
-If you want a longer private setup note, keep this `SETUP.md` out of the repository or in a private repo.
+```powershell
+cd site
+npm install
+npm run dev
+```
+
+## 2. Profile README
+
+GitHub only renders the root `README.md` of this repository as the profile.
+
+1. Copy `README.md` from this folder to the repository root.
+2. Copy `hero.jpg` and every `sec-*.jpg` beside it. The README references `./hero.jpg` and `./sec-*.jpg`.
+3. Keep the images in the same folder as `README.md`, or the links break.
+4. Commit and push, then open <https://github.com/11SenjiMuramasa11>.
+
+The hero image and the Portfolio badge both link to the Pages URL. Publish the site first so the link works.
 
 ## Editing
 
-- Name, tagline, and intro: edit `README.md`.
-- Portrait: replace `avatar-circle.png` with another square image, then re-crop it into a circle.
-- Featured projects: update the two links and descriptions in the table.
-- Contact: replace the email line with a `mailto:` link if you want your address public.
+- Text and links: edit `README.md` directly. The body text is real Markdown, not baked into images.
+- Section header cards: `src/render-cards.mjs` (renders `hero.jpg` and `sec-*.jpg`).
+- README preview: `python src/preview.py` writes `preview.html`.
+- Link check: `node src/check-links.mjs`.
+- Site content: `site/src/data.js`.
+- Site styles: `site/src/styles.css`.
 
-The full portfolio site is in the parent folder. See the root `README.md` for how to run and deploy it.
+Not published: `SETUP.md`, `preview.html`, `src/`.

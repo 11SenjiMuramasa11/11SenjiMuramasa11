@@ -1,124 +1,214 @@
-# Muramasa — Adventure Log
+<div align="center">
+  <a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/">
+    <img src="./hero.jpg" width="100%" alt="Justine James Prades — Muramasa. Software developer and QA. BSIT at NU Laguna. Four projects. Laravel, React, Node.js." />
+  </a>
+</div>
 
-A Genshin Impact-inspired portfolio for **Justine James "Muramasa" Prades**. It borrows the shape of an in-game profile: a navy namecard, a gold book frame, parchment pages, ranked stats, equipment cards, and a tabbed project archive.
+**Software developer & QA** · BSIT at NU Laguna
 
-The site is plain HTML, CSS, and JavaScript. There is no framework, package manager, build step, or server code.
+<div align="center">
+  <a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/"><img src="https://img.shields.io/badge/Portfolio-0B1834?style=for-the-badge&logo=googlechrome&logoColor=C8A45B" alt="Portfolio" /></a>
+  <a href="https://github.com/11SenjiMuramasa11"><img src="https://img.shields.io/badge/GitHub-0B1834?style=for-the-badge&logo=github&logoColor=C8A45B" alt="GitHub" /></a>
+  <a href="https://www.linkedin.com/in/jjprades"><img src="https://img.shields.io/badge/LinkedIn-0B1834?style=for-the-badge&logo=linkedin&logoColor=C8A45B" alt="LinkedIn" /></a>
+  <a href="mailto:justinejamesprades1111@gmail.com"><img src="https://img.shields.io/badge/Email-0B1834?style=for-the-badge&logo=gmail&logoColor=C8A45B" alt="Email" /></a>
+</div>
 
-This repository also houses the source of my GitHub profile README in `github-profile/`. The profile is meant to live in the special `11SenjiMuramasa11/11SenjiMuramasa11` repository, not in a new repo.
+<img src="./sec-about.jpg" width="100%" alt="01 — About. Student, builder, tester." />
 
-## Run it locally
+<table>
+  <tr>
+    <td width="840" valign="top">
+      <p>I'm a BSIT student at National University (NU Laguna), building web
+      applications in Laravel and React and testing them through full sprint
+      cycles. I like the part where a system has to hold up: clear API
+      contracts, role-based access, and a test plan that finds the gaps.</p>
+      <p>Right now I'm working through authentication, middleware, and validation
+      — and getting better at reading someone else's code before changing it.</p>
+    </td>
+  </tr>
+</table>
 
-Open `index.html` directly, or serve the folder so relative paths and fonts behave exactly as they would online:
+<img src="./sec-work.jpg" width="100%" alt="02 — Selected work. Four projects, two of them team efforts." />
 
-```powershell
-python -m http.server 4173 --bind 127.0.0.1
-```
+<table>
+  <tr>
+    <td width="90" valign="top">
+      <h3>01</h3>
+      <sub>2026</sub>
+    </td>
+    <td width="750" valign="top">
+      <h3><a href="https://github.com/11SenjiMuramasa11/Elective_song_API">Elective Song API</a></h3>
+      <p>A music-streaming REST API for artists, albums, songs, and playlists, with
+      search, charts, play counts, and playlist management. Built with a team.</p>
+      <p><code>Node.js</code> <code>Express</code> <code>MySQL</code></p>
+      <p><strong>Built</strong> · <a href="https://github.com/11SenjiMuramasa11/Elective_song_API">Repository</a></p>
+    </td>
+  </tr>
+</table>
 
-Then visit <http://127.0.0.1:4173>.
+<table>
+  <tr>
+    <td width="90" valign="top">
+      <h3>02</h3>
+      <sub>2026</sub>
+    </td>
+    <td width="750" valign="top">
+      <h3><a href="https://github.com/11SenjiMuramasa11/github-11SenjiMuramasa11_firstapi">Student Records API</a></h3>
+      <p>A compact CRUD API for student records, with JSON handling, status
+      updates, and environment-based configuration.</p>
+      <p><code>Node.js</code> <code>Express</code> <code>MySQL</code></p>
+      <p><strong>Built</strong> · <a href="https://github.com/11SenjiMuramasa11/github-11SenjiMuramasa11_firstapi">Repository</a></p>
+    </td>
+  </tr>
+</table>
 
-A local server is recommended. Opening the file directly works, but some browsers restrict local asset loading.
+<table>
+  <tr>
+    <td width="90" valign="top">
+      <h3>03</h3>
+      <sub>2026</sub>
+    </td>
+    <td width="750" valign="top">
+      <h3><a href="https://github.com/carilloandrei9264/team-idle">TrustHome PH</a></h3>
+      <p>A rental marketplace capstone with document-reviewed listings,
+      conflict-free booking, and a fairness-scored bank property catalog.
+      Frontend work on settings, ratings, and trust scoring — then QA across five
+      sprints: test plans, test cases, regression, and UAT.</p>
+      <p><code>React</code> <code>Vite</code> <code>Firebase</code></p>
+      <p><strong>Contributor</strong> · <a href="https://github.com/carilloandrei9264/team-idle/pull/15">Pull request #15</a></p>
+    </td>
+  </tr>
+</table>
 
-## Edit your information
+<table>
+  <tr>
+    <td width="90" valign="top">
+      <h3>04</h3>
+      <sub>2025&#8209;26</sub>
+    </td>
+    <td width="750" valign="top">
+      <h3><a href="https://github.com/AndreiCarillo-9264/manufacturing-coordination-system">cpcNextboard</a></h3>
+      <p>An intranet system for real-time coordination between production,
+      inventory, sales, and logistics at a manufacturing company. Co-developed
+      with a team of three: Laravel and MySQL, live updates over WebSockets,
+      role-based access, department dashboards, and a Groq-powered assistant for
+      forecasting. Rated 4.12/5 by company staff and IT experts.</p>
+      <p><code>Laravel</code> <code>PHP</code> <code>MySQL</code> <code>WebSockets</code></p>
+      <p><strong>Contributor</strong> · <a href="https://github.com/AndreiCarillo-9264/manufacturing-coordination-system/commit/4b3ed604daca984f0c1bf1991fbfbbab89e3dee5">Commit</a></p>
+    </td>
+  </tr>
+</table>
 
-Almost everything lives in **`assets/data.js`**. It is a single `window.PORTFOLIO` object. Edit it in any text editor and reload the page.
+<img src="./sec-stack.jpg" width="100%" alt="03 — Stack. What I build with, and what I test with." />
 
-```js
-identity: {
-  name: "Justine James Prades",
-  alias: "Muramasa",
-  handle: "11SenjiMuramasa11",
-  role: "Backend developer in progress",
-  signature: "I turn ideas into REST APIs — currently leveling up one endpoint at a time.",
-  bio: "I’m Justine, a JavaScript developer who learns by building...",
-  avatar: "assets/avatar-cropped.png",
-  github: "https://github.com/11SenjiMuramasa11",
-  email: "",
-  resume: "",
-  githubJoined: "2025-05-26",
-  projectsBuilt: 3
-}
-```
+<table>
+  <tr>
+    <td width="150" valign="top"><strong>Languages</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/JavaScript-0B1834?style=flat-square&logo=javascript&logoColor=C8A45B" alt="JavaScript" />
+      <img src="https://img.shields.io/badge/PHP-0B1834?style=flat-square&logo=php&logoColor=C8A45B" alt="PHP" />
+      <img src="https://img.shields.io/badge/SQL-0B1834?style=flat-square&logo=mysql&logoColor=C8A45B" alt="SQL" />
+      <img src="https://img.shields.io/badge/HTML-0B1834?style=flat-square&logo=html5&logoColor=C8A45B" alt="HTML" />
+      <img src="https://img.shields.io/badge/CSS-0B1834?style=flat-square&logo=css3&logoColor=C8A45B" alt="CSS" />
+    </td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><strong>Frameworks</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/Laravel-0B1834?style=flat-square&logo=laravel&logoColor=C8A45B" alt="Laravel" />
+      <img src="https://img.shields.io/badge/React-0B1834?style=flat-square&logo=react&logoColor=C8A45B" alt="React" />
+      <img src="https://img.shields.io/badge/Node.js-0B1834?style=flat-square&logo=nodedotjs&logoColor=C8A45B" alt="Node.js" />
+      <img src="https://img.shields.io/badge/Express-0B1834?style=flat-square&logo=express&logoColor=C8A45B" alt="Express" />
+      <img src="https://img.shields.io/badge/Vite-0B1834?style=flat-square&logo=vite&logoColor=C8A45B" alt="Vite" />
+    </td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><strong>Data & cloud</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/MySQL-0B1834?style=flat-square&logo=mysql&logoColor=C8A45B" alt="MySQL" />
+      <img src="https://img.shields.io/badge/SQLite-0B1834?style=flat-square&logo=sqlite&logoColor=C8A45B" alt="SQLite" />
+      <img src="https://img.shields.io/badge/Firebase-0B1834?style=flat-square&logo=firebase&logoColor=C8A45B" alt="Firebase" />
+      <img src="https://img.shields.io/badge/AWS-0B1834?style=flat-square&logo=amazonwebservices&logoColor=C8A45B" alt="AWS" />
+    </td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><strong>Integration</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/REST_APIs-0B1834?style=flat-square" alt="REST APIs" />
+      <img src="https://img.shields.io/badge/EDI-0B1834?style=flat-square" alt="EDI" />
+      <img src="https://img.shields.io/badge/WebSockets-0B1834?style=flat-square&logo=socketdotio&logoColor=C8A45B" alt="WebSockets" />
+    </td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><strong>Tools</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/Git-0B1834?style=flat-square&logo=git&logoColor=C8A45B" alt="Git" />
+      <img src="https://img.shields.io/badge/GitHub-0B1834?style=flat-square&logo=github&logoColor=C8A45B" alt="GitHub" />
+      <img src="https://img.shields.io/badge/GitHub_Actions-0B1834?style=flat-square&logo=githubactions&logoColor=C8A45B" alt="GitHub Actions" />
+      <img src="https://img.shields.io/badge/PHPUnit-0B1834?style=flat-square&logo=php&logoColor=C8A45B" alt="PHPUnit" />
+      <img src="https://img.shields.io/badge/ESLint-0B1834?style=flat-square&logo=eslint&logoColor=C8A45B" alt="ESLint" />
+    </td>
+  </tr>
+  <tr>
+    <td width="150" valign="top"><strong>QA</strong></td>
+    <td width="690" valign="top">
+      <img src="https://img.shields.io/badge/Test_planning-0B1834?style=flat-square" alt="Test planning" />
+      <img src="https://img.shields.io/badge/Test_cases-0B1834?style=flat-square" alt="Test cases" />
+      <img src="https://img.shields.io/badge/Regression-0B1834?style=flat-square" alt="Regression testing" />
+      <img src="https://img.shields.io/badge/Traceability-0B1834?style=flat-square" alt="Requirements traceability" />
+      <img src="https://img.shields.io/badge/UAT-0B1834?style=flat-square" alt="User acceptance testing" />
+    </td>
+  </tr>
+</table>
 
-`Days on GitHub` is calculated from `githubJoined` each time the page loads, so it stays current. `projectsBuilt` is the number shown in the second rank bar; update it when you add a project.
+Firebase: Firestore, Auth, Hosting, and Cloud Functions. AWS: EC2, S3, IAM, and
+Route 53.
 
-### Fields that disappear when blank
+<img src="./sec-background.jpg" width="100%" alt="04 — Background. School, certifications, and the paper trail." />
 
-`email` and `resume` are optional. If a value is an empty string, the corresponding link or detail is hidden automatically. There is no broken placeholder to clean up.
+<table>
+  <tr>
+    <td width="130" valign="top"><strong>2022&nbsp;–&nbsp;now</strong></td>
+    <td width="710" valign="top">BS Information Technology, National University (NU Laguna)</td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>2020&nbsp;–&nbsp;22</strong></td>
+    <td width="710" valign="top">Senior High School, Laguna College of Business and Arts</td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>May&nbsp;2026</strong></td>
+    <td width="710" valign="top">IT Specialist: Network Security — Certiport</td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>Mar&nbsp;2025</strong></td>
+    <td width="710" valign="top">IT Specialist: Databases — Certiport</td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>Aug&nbsp;2025</strong></td>
+    <td width="710" valign="top">Agentblazer Workshop — Salesforce Trailhead</td>
+  </tr>
+</table>
 
-### Adding a résumé
+<img src="./sec-contact.jpg" width="100%" alt="05 — Contact. Open to internships and collaborations." />
 
-1. Put the file in `assets/`, for example `assets/justine-prades-resume.pdf`.
-2. Set `resume: "assets/justine-prades-resume.pdf"` in `assets/data.js`.
-3. The **Résumé** button appears in the profile actions.
+<table>
+  <tr>
+    <td width="130" valign="top"><strong>Email</strong></td>
+    <td width="710" valign="top"><a href="mailto:justinejamesprades1111@gmail.com">justinejamesprades1111@gmail.com</a></td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>GitHub</strong></td>
+    <td width="710" valign="top"><a href="https://github.com/11SenjiMuramasa11">@11SenjiMuramasa11</a></td>
+  </tr>
+  <tr>
+    <td width="130" valign="top"><strong>LinkedIn</strong></td>
+    <td width="710" valign="top"><a href="https://www.linkedin.com/in/jjprades">in/jjprades</a></td>
+  </tr>
+</table>
 
-The site only links to the file. It does not read or extract text from a PDF.
+<img src="./sec-end.jpg" width="100%" alt="Muramasa" />
 
-### Other editable sections
-
-| Key | What it controls |
-| --- | --- |
-| `stats` | The four numbers in the strip under the intro. |
-| `ledger` | The "developer record" rows on the left page. |
-| `skills` | The eight Equipment namecards. Clicking one opens a detail dialog. |
-| `projects` | The project cards and their detail dialogs. |
-| `log` | The Adventure Log timeline on the Projects tab. |
-
-Each skill needs a unique `id`, a `label`, an `art` key, a `tag`, a `summary`, a `description`, and a `usedIn` list. Available `art` keys are defined in `index.html`:
-
-`js`, `node`, `express`, `mysql`, `rest`, `git`, `github`, `backend`, `music`, `student`, `portfolio`.
-
-Each project needs a unique `id`, `title`, `art`, `type`, `year`, `summary`, `description`, `stack`, `highlights`, `note`, and `repo`. Leave `repo` empty to hide the repository button in its dialog.
-
-## Replace the avatar
-
-Replace `assets/avatar-cropped.png` with a square image, ideally at least 320 × 320 px. Keep the same filename, or update `identity.avatar`.
-
-The current image is the public GitHub avatar, cropped to remove the baked-in "Traveler" label.
-
-## Deploy with GitHub Pages
-
-1. Create a repository, for example `portfolio`.
-2. Push these files to the default branch.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, then select the default branch and the `/ (root)` folder.
-5. Save. GitHub publishes the site at `https://11SenjiMuramasa11.github.io/portfolio/`.
-
-If you name the repository `11SenjiMuramasa11.github.io`, it publishes at `https://11SenjiMuramasa11.github.io/` instead. No build command is needed.
-
-The `.taste-skill/` folder contains local design-check output. It is excluded in `.gitignore` and is not needed by the site.
-
-## GitHub profile README
-
-`github-profile/` contains the ready-to-publish GitHub profile README and its centered circular portrait. Follow `github-profile/SETUP.md`; do not publish `SETUP.md` itself. Keep `README.md` and `avatar-circle.png` side by side so the portrait path resolves.
-
-## Project structure
-
-```text
-.
-├── index.html                 Page structure, SVG artwork, tabs, dialog
-├── assets/
-│   ├── styles.css             Visual system and responsive rules
-│   ├── data.js                Editable content (start here)
-│   ├── app.js                 Rendering, tabs, dialogs, motion
-│   ├── avatar-cropped.png     Profile portrait
-│   ├── avatar.png             Original GitHub avatar
-│   ├── favicon.svg            Site icon
-│   └── starfield.svg          Page background
-├── github-profile/
-│   ├── README.md              Ready-to-publish GitHub profile README
-│   ├── SETUP.md               Publish instructions (not for GitHub)
-│   └── avatar-circle.png      Centered circular profile portrait
-└── README.md
-```
-
-## Design notes
-
-- All namecard and equipment artwork is original inline SVG. No official game art is copied or hotlinked.
-- Fonts are Cormorant Garamond and Nunito Sans from Google Fonts. If they fail to load, the page falls back to Georgia and Segoe UI.
-- The layout is a two-page book on desktop and a stacked card on tablets and phones.
-- Tabs support arrow keys, Home, and End. The project and skill dialogs close with Escape and restore focus.
-- Motion is reduced automatically when the operating system asks for it.
-
-## Disclaimer
-
-This is a fan-made portfolio. **Genshin Impact** is a trademark of HoYoverse. This project is not affiliated with or endorsed by HoYoverse.
+<sub><strong>About this repository</strong><br />
+This is my GitHub profile repository, not a project. GitHub renders this
+<code>README.md</code> at the top of <a href="https://github.com/11SenjiMuramasa11">my profile</a>.
+The code lives in the repositories linked under Selected work.</sub>

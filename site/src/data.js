@@ -1,7 +1,7 @@
 export const identity = {
   name: "Justine James Prades",
   handle: "@11SenjiMuramasa11",
-  role: "Full-Stack Developer & QA Engineer",
+  role: "Back-End Developer & QA Engineer",
   email: "justinejamesprades1111@gmail.com",
   github: "https://github.com/11SenjiMuramasa11",
   linkedin: "https://www.linkedin.com/in/jjprades",

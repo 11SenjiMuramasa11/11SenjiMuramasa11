@@ -1,7 +1,8 @@
 {
-  "name": "muramasa-portfolio",
+  "name": "portfolio-justine-james-prades",
   "private": true,
   "version": "1.0.0",
+  "description": "Personal portfolio of Justine James Prades — full-stack developer and QA engineer. Built with React, Vite, and Motion.",
   "type": "module",
   "scripts": {
     "dev": "vite",

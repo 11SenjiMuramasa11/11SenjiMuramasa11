@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel / deployment
+.vercel/
+
+# AI agent / skills tooling
+.agent/
+.agents/
+.kiro/
+skills.lock
+skills-lock.json
+.claude/

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Nunito+Sans:ital,wght@0,700;0,800;1,400&display=block" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  .card {
+    position: relative;
+    width: 1000px;
+    height: 420px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0a0a0a;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  /* thin frame + corner brackets, same as the portfolio's .frame */
+  .frame { position: absolute; inset: 12px; border: 1px solid rgba(201,168,106,.16); border-radius: 8px; z-index: 4; }
+  .corner { position: absolute; width: 54px; height: 54px; color: #c9a86a; opacity: .75; }
+  .corner svg { width: 100%; height: 100%; display: block; }
+  .tl { top: -1px; left: -1px; }
+  .tr { top: -1px; right: -1px; transform: scaleX(-1); }
+  .bl { bottom: -1px; left: -1px; transform: scaleY(-1); }
+  .br { bottom: -1px; right: -1px; transform: scale(-1); }
+
+  .label {
+    position: absolute; top: 34px; left: 44px; z-index: 4;
+    font-size: 10.5px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: #c9a86a;
+  }
+  .name {
+    position: absolute; z-index: 1;
+    font-family: "Archivo", sans-serif; font-weight: 900; font-stretch: 125%;
+    font-size: 112px; line-height: .8; letter-spacing: -.035em; color: #fff; white-space: nowrap;
+  }
+  .back { left: 104px; top: 92px; }
+  .front { left: 330px; top: 214px; z-index: 3; }
+  .photo {
+    position: absolute; z-index: 2; bottom: 0; left: 560px; transform: translateX(-50%);
+    height: 392px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  }
+  .quote {
+    position: absolute; z-index: 4; left: 44px; bottom: 72px;
+    padding-left: 12px; border-left: 1px solid #c9a86a;
+    font-style: italic; font-size: 14px; color: #f0dcab;
+  }
+  .captions {
+    position: absolute; z-index: 4; left: 44px; right: 44px; bottom: 32px;
+    display: flex; justify-content: space-between;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(185,203,214,.62);
+  }
+  .captions span::before { content: ""; display: inline-block; width: 5px; height: 5px; background: #c9a86a; transform: rotate(45deg); margin-right: 9px; vertical-align: 1px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="frame">
+    __CORNERS__
+  </div>
+  <div class="label">Full-stack developer &amp; QA engineer</div>
+  <div class="name back">JUSTINE</div>
+  <img class="photo" src="__PHOTO__" alt="" />
+  <div class="name front">PRADES</div>
+  <div class="quote">"I build the API, then try to break it."</div>
+  <div class="captions">
+    <span>BSIT · NU Laguna</span>
+    <span>Laravel · React</span>
+    <span>__URL__</span>
+  </div>
+</div>
+</body>
+</html>

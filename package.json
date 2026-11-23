@@ -1,0 +1,17 @@
+{
+  "name": "11senjimuramasa11-profile",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Generator for the images in my GitHub profile README",
+  "type": "module",
+  "scripts": {
+    "render": "node src/render.mjs",
+    "preview": "node src/preview-readme.mjs",
+    "check-links": "node src/check-links.mjs"
+  },
+  "devDependencies": {
+    "marked": "^18.2.1",
+    "playwright": "^1.52.0",
+    "sharp": "^0.35.5"
+  }
+}

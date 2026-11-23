@@ -1,69 +1,139 @@
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
-import { background } from "../data.js";
+import { education, identity } from "../data.js";
+import { Arrow } from "./icons.jsx";
 import Reveal from "./Reveal.jsx";
-import SectionHead from "./SectionHead.jsx";
+import SectionBar from "./SectionBar.jsx";
+import { sounds } from "../audio.js";
+
+// ─── EDITABLE CERTIFICATIONS ARRAY ──────────────────────────────────────────
+// Each cert: { title, issuer, date, image, pdf, desc }
+const CERTS_DATA = [
+  {
+    id: "network-security",
+    title: "IT Specialist: Network Security",
+    issuer: "Certiport · Pearson VUE",
+    date: "May 2026",
+    image: "certs/network-security.webp",
+    pdf: "certs/network-security.pdf",
+    desc: "Demonstrates foundational knowledge in network security, defense-in-depth, security policies, and mitigation techniques.",
+  },
+  {
+    id: "databases",
+    title: "IT Specialist: Databases",
+    issuer: "Certiport · Pearson VUE",
+    date: "March 2025",
+    image: "certs/databases.webp",
+    pdf: "certs/databases.pdf",
+    desc: "Covers relational database fundamentals, normalization, queries, stored procedures, data integrity, and ACID properties.",
+  },
+  {
+    id: "salesforce-agentblazer",
+    title: "Salesforce Agentblazer Workshop",
+    issuer: "Salesforce Trailhead",
+    date: "August 2025",
+    image: "certs/salesforce-agentblazer.webp",
+    pdf: "certs/salesforce-agentblazer.pdf",
+    desc: "Autonomous AI agent development, Trailhead prompt design, and enterprise workflow automation workshop.",
+  },
+];
 
 export default function Background() {
-  const timelineRef = useRef(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start 78%", "end 62%"],
-  });
-  const fill = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
   return (
-    <section
-      className="section section--panel"
-      id="background"
-      aria-labelledby="background-title"
-    >
+    <section className="section section--sky section--tight" id="certifications" aria-labelledby="cert-title">
+      <Reveal>
+        <SectionBar
+          id="cert-title"
+          title="Certifications"
+          meta="Accredited Qualifications"
+          emblem="book"
+        />
+      </Reveal>
+
       <div className="wrap">
-        <span className="section__num" aria-hidden="true">
-          04
-        </span>
-        <div className="background">
-          <div className="background__sticky">
-            <Reveal>
-              <SectionHead
-                id="background-title"
-                number="04"
-                label="Background"
-                title="The paper trail."
-                sub="School, certifications, and where the foundations come from."
-              />
-            </Reveal>
+        <Reveal delay={0.06}>
+          <div className="cert-header-bar">
+            <div>
+              <span className="section-eyebrow">ACCREDITATIONS</span>
+              <h2 className="cert-section-heading">Industry Certifications</h2>
+            </div>
+            <a
+              href={identity.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="cert-linkedin-link"
+              onMouseEnter={() => sounds.playHover?.()}
+            >
+              <span>View on LinkedIn</span>
+              <Arrow />
+            </a>
           </div>
 
-          <ol className="timeline" ref={timelineRef}>
-            <motion.span
-              className="timeline__fill"
-              aria-hidden="true"
-              style={reduce ? undefined : { scaleY: fill }}
-            />
-            {background.map((item, index) => (
-              <Reveal
-                key={`${item.when}-${item.title}`}
-                className={`timeline__item${
-                  item.kind === "Certification" ? " is-cert" : ""
-                }`}
-                delay={index * 0.04}
-                y={18}
+          {/* 3-Column Certificate Cards Grid */}
+          <div className="cert-cards-grid">
+            {CERTS_DATA.map((cert) => (
+              <div
+                key={cert.id}
+                className="cert-card-wrap"
+                onMouseEnter={() => sounds.playHover?.()}
               >
-                <span className="timeline__when">{item.when}</span>
-                <h3 className="timeline__title">{item.title}</h3>
-                <p className="timeline__where">{item.where}</p>
-                <span className="timeline__kind">{item.kind}</span>
-              </Reveal>
+                <div className="cert-card">
+                  {/* Clickable image → opens PDF in a new tab */}
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cert-img-link"
+                    aria-label={`Open ${cert.title} certificate (PDF)`}
+                    onClick={() => sounds.playClick?.()}
+                  >
+                    <div className="cert-img-frame">
+                      <img
+                        src={cert.image}
+                        alt={`${cert.title} certificate`}
+                        className="cert-img"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </a>
+
+                  {/* Metadata */}
+                  <div className="cert-card__body">
+                    <h3 className="cert-card__title">{cert.title}</h3>
+
+                    <div className="cert-card__meta-row">
+                      <span className="cert-card__issuer">{cert.issuer}</span>
+                      <span className="cert-card__date">{cert.date}</span>
+                    </div>
+
+                    <p className="cert-card__desc">{cert.desc}</p>
+                  </div>
+                </div>
+              </div>
             ))}
-          </ol>
-        </div>
+          </div>
+
+          {/* Education Journey */}
+          <div className="edu-timeline-section">
+            <h3 className="edu-section-title">Education Journey</h3>
+
+            <div className="edu-list">
+              {education.map((edu, i) => (
+                <div key={i} className="edu-card" onMouseEnter={() => sounds.playHover?.()}>
+                  <div className="edu-card__period">
+                    <span>{edu.period}</span>
+                  </div>
+                  <div className="edu-card__info">
+                    <h4 className="edu-degree">{edu.degree}</h4>
+                    <p className="edu-institution">{edu.institution}</p>
+                    <p className="edu-details">{edu.details}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -17,12 +17,26 @@ Right now I'm working through authentication, middleware, and validation, and ge
 
 <img src="assets/section-work.png" width="100%" alt="Selected work" />
 
-| Project | Description | Stack | Role | Link |
-| :-- | :-- | :-- | :-- | :-- |
-| [**Elective Song API**](https://github.com/11SenjiMuramasa11/Elective_song_API) | A music-streaming REST API for artists, albums, songs, and playlists, built with a team. | `Node.js` `Express` `MySQL` | Built | [Repository](https://github.com/11SenjiMuramasa11/Elective_song_API) |
-| [**Student Records API**](https://github.com/11SenjiMuramasa11/github-11SenjiMuramasa11_firstapi) | A compact CRUD API for student records. | `Node.js` `Express` `MySQL` | Built | [Repository](https://github.com/11SenjiMuramasa11/github-11SenjiMuramasa11_firstapi) |
-| [**TrustHome PH**](https://github.com/carilloandrei9264/team-idle) | A rental marketplace capstone with document-reviewed listings and conflict-free booking. | `React` `Vite` `Firebase` | Contributor | [Pull request #15](https://github.com/carilloandrei9264/team-idle/pull/15) |
-| [**cpcNextboard**](https://github.com/AndreiCarillo-9264/manufacturing-coordination-system) | An intranet system for real-time coordination between production, inventory, sales, and logistics at a manufacturing company. | `Laravel` `PHP` `MySQL` `WebSockets` | Contributor | [Commit](https://github.com/AndreiCarillo-9264/manufacturing-coordination-system/commit/4b3ed604daca984f0c1bf1991fbfbbab89e3dee5) |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work"><img src="assets/project-trusthome.png" width="100%" alt="TrustHome PH home page with the headline Find a place you can actually trust and a search box for rentals by city." /></a>
+      <h3><a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work">TrustHome PH</a></h3>
+      <p>A rental marketplace where every owner is ID-checked and listings rank by completed bookings and ratings instead of paid placement. I worked on the settings, ratings and trust-score screens, then ran QA for five sprints: test plans, test cases, regression and UAT.</p>
+      <p><code>React</code> <code>Vite</code> <code>Firebase</code></p>
+      <p><sub>Team capstone · Frontend and QA · <a href="https://github.com/carilloandrei9264/team-idle/pull/15">Pull request #15</a></sub></p>
+      <p><a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work"><b>View TrustHome PH on my portfolio</b></a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work"><img src="assets/project-cpcnextboard.png" width="100%" alt="cpcNextboard sign-in screen over a photo of the manufacturing plant, titled Manufacturing Coordination System." /></a>
+      <h3><a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work">cpcNextboard</a></h3>
+      <p>An intranet that keeps production, inventory, sales and logistics in step at a manufacturing company. Three of us built it in Laravel and MySQL, with live updates over WebSockets, role-based access, department dashboards and a Groq assistant for forecasting. Company staff and IT experts rated it 4.12 out of 5.</p>
+      <p><code>Laravel</code> <code>PHP</code> <code>MySQL</code> <code>WebSockets</code> <code>Groq AI</code></p>
+      <p><sub>Team of three · Co-developer · <a href="https://github.com/AndreiCarillo-9264/manufacturing-coordination-system/commit/4b3ed604daca984f0c1bf1991fbfbbab89e3dee5">Commit 4b3ed60</a></sub></p>
+      <p><a href="https://11senjimuramasa11.github.io/11SenjiMuramasa11/#work"><b>View cpcNextboard on my portfolio</b></a></p>
+    </td>
+  </tr>
+</table>
 
 <img src="assets/section-stack.png" width="100%" alt="Stack" />
 

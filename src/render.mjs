@@ -24,7 +24,12 @@ const tpl = (name, vars) =>
 
 const photo = `data:image/png;base64,${readFileSync(resolve(src, "me.png")).toString("base64")}`;
 
+const dataUri = (file, type) => `data:${type};base64,${readFileSync(resolve(src, file)).toString("base64")}`;
+
 const cards = [
+  ...[["trusthome", "TrustHome PH"], ["cpcnextboard", "cpcNextboard"]].map(([slug, title]) => ({
+    out: `project-${slug}.png`, html: tpl("project.html", { TITLE: title, SHOT: dataUri(`projects/${slug}.webp`, "image/webp") }), max: 250_000, fonts: ['700 10px "Nunito Sans"'],
+  })),
   { out: "hero.png", html: tpl("hero.html", { PHOTO: photo, URL: PORTFOLIO_URL }), max: 350_000, fonts: ['900 112px "Archivo"', '800 10px "Nunito Sans"', 'italic 400 14px "Nunito Sans"'] },
   ...[["portfolio", "Portfolio"], ["github", "GitHub"], ["linkedin", "LinkedIn"], ["email", "Email"]].map(([slug, label]) => ({
     out: `btn-${slug}.png`, html: tpl("button.html", { LABEL: label }), max: 20_000, fonts: ['800 11px "Nunito Sans"'],

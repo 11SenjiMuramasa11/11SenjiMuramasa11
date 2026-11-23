@@ -4,7 +4,7 @@ import { sounds } from "../audio.js";
 // ─── EDITABLE DATA ───────────────────────────────────────────────────────────
 const CHAR = {
   fullName: "Justine James Prades",
-  role: "Full-Stack Developer & QA Engineer",
+  role: "Back-End Developer & QA Engineer",
   institution: "BSIT · National University Laguna",
   quote: "I build the API, then try to break it.",
   github: "https://github.com/11SenjiMuramasa11",

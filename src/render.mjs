@@ -6,6 +6,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
+import { cards as sections } from "./cards.mjs";
 
 const src = dirname(fileURLToPath(import.meta.url));
 const assets = resolve(src, "../assets");
@@ -24,18 +25,14 @@ const tpl = (name, vars) =>
 
 const photo = `data:image/png;base64,${readFileSync(resolve(src, "me.png")).toString("base64")}`;
 
-const dataUri = (file, type) => `data:${type};base64,${readFileSync(resolve(src, file)).toString("base64")}`;
-
 const cards = [
-  ...[["trusthome", "TrustHome PH"], ["cpcnextboard", "cpcNextboard"]].map(([slug, title]) => ({
-    out: `project-${slug}.png`, html: tpl("project.html", { TITLE: title, SHOT: dataUri(`projects/${slug}.webp`, "image/webp") }), max: 250_000, fonts: ['700 10px "Nunito Sans"'],
+  ...sections.map((c) => ({
+    out: `card-${c.slug}.png`, html: tpl("card.html", { BODY: c.body }), max: 450_000,
+    fonts: ['900 46px "Archivo"', '500 10px "JetBrains Mono"', '600 13px "Nunito Sans"'],
   })),
   { out: "hero.png", html: tpl("hero.html", { PHOTO: photo, URL: PORTFOLIO_URL }), max: 350_000, fonts: ['900 112px "Archivo"', '800 10px "Nunito Sans"', 'italic 400 14px "Nunito Sans"'] },
   ...[["portfolio", "Portfolio"], ["github", "GitHub"], ["linkedin", "LinkedIn"], ["email", "Email"]].map(([slug, label]) => ({
     out: `btn-${slug}.png`, html: tpl("button.html", { LABEL: label }), max: 20_000, fonts: ['800 11px "Nunito Sans"'],
-  })),
-  ...[["about", "About"], ["work", "Selected work"], ["stack", "Stack"], ["certifications", "Certifications"], ["contact", "Contact"]].map(([slug, title]) => ({
-    out: `section-${slug}.png`, html: tpl("section.html", { TITLE: title }), max: 60_000, fonts: ['46px "Marcellus"'],
   })),
 ];
 
@@ -47,7 +44,10 @@ try {
     await page.setContent(card.html, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
     // fail loudly instead of shipping a fallback font
-    const missing = await page.evaluate((fs) => fs.filter((f) => !document.fonts.check(f)), card.fonts);
+    const missing = await page.evaluate(async (fs) => {
+      await Promise.all(fs.map((f) => document.fonts.load(f))); // faces a card doesn't use are never fetched on their own
+      return fs.filter((f) => !document.fonts.check(f));
+    }, card.fonts);
     if (missing.length) throw new Error(`${card.out}: fonts not loaded: ${missing.join(", ")}`);
     await page.evaluate(() => Promise.all([...document.images].map((i) => i.decode())));
 
@@ -64,3 +64,13 @@ try {
   await browser.close();
 }
 if (failed) process.exit(1);
+
+// keep README's card block in sync with cards.mjs (alt text and links)
+const readmePath = resolve(src, "../README.md");
+const block = sections
+  .map((c) => `<p align="center">\n  <a href="${c.href}"><img src="assets/card-${c.slug}.png" width="100%" alt="${c.alt.replaceAll('"', "&quot;")}" /></a>\n</p>`)
+  .join("\n\n");
+const readme = readFileSync(readmePath, "utf8");
+if (!/<!-- cards:start -->[\s\S]*<!-- cards:end -->/.test(readme)) throw new Error("README.md is missing the <!-- cards:start --> / <!-- cards:end --> markers");
+writeFileSync(readmePath, readme.replace(/<!-- cards:start -->[\s\S]*<!-- cards:end -->/, `<!-- cards:start -->\n${block}\n<!-- cards:end -->`));
+console.log("README.md card block updated");

@@ -174,6 +174,12 @@ export default function CharacterMenu() {
     }
   }, []);
 
+  // Deep links like #contact: the browser looks for the hash before React renders the section, so scroll once mounted
+  useEffect(() => {
+    const el = document.getElementById(window.location.hash.slice(1));
+    if (el) requestAnimationFrame(() => el.scrollIntoView());
+  }, []);
+
   // ── Keyboard navigation (W/S & Up/Down arrows) ────────────────────
   const handleKey = useCallback(
     (e) => {

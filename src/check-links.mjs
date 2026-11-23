@@ -35,6 +35,15 @@ for (const [, p] of readme.matchAll(/src="([^"h][^"]*)"/g)) {
   ok ? pass++ : fail++;
 }
 
+// GitHub links any unwrapped image to its own blob page, so every <img> must sit inside an external <a>
+const unwrapped = [...readme.matchAll(/(<a\s[^>]*href="([^"]*)"[^>]*>\s*)?<img\s[^>]*src="([^"]+)"/g)]
+  .filter(([, a, href]) => !a || !/^(https?:|mailto:)/.test(href))
+  .map((m) => m[3]);
+if (/!\[[^\]]*\]\(/.test(readme)) unwrapped.push("markdown ![]() image");
+for (const s of unwrapped) console.log(`  ✗  not linked to an external page: ${s}`);
+fail += unwrapped.length;
+console.log(`  ${unwrapped.length ? "✗" : "✓"}  every image wrapped in an external link`);
+
 console.log(`\nChecking ${links.length} links...\n`);
 
 for (const url of links) {

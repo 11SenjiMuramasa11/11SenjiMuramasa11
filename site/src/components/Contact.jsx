@@ -37,6 +37,7 @@ const channels = [
 
 export default function Contact() {
   const [copied, setCopied] = useState("");
+  const copyOk = copied === "Copied to clipboard";
   const timer = useRef(null);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
@@ -63,7 +64,7 @@ export default function Contact() {
       sounds.playSuccess();
       setCopied("Copied to clipboard");
     } else {
-      setCopied("Copy failed");
+      setCopied("Couldn't copy. Select the address above.");
     }
 
     window.clearTimeout(timer.current);
@@ -77,7 +78,7 @@ export default function Contact() {
           id="contact-title"
           title="Contact"
           meta="Inquiries & Opportunities"
-          emblem="seal"
+          emblem="wings"
         />
       </Reveal>
 
@@ -86,7 +87,7 @@ export default function Contact() {
           <div className="pro-contact-container">
             {/* Header Text */}
             <div className="pro-contact-intro">
-              <h2 className="contact-title">Let's connect.</h2>
+              <p className="contact-title">Let's connect.</p>
               <p className="contact-lead">
                 Open to software engineering internships, collaborative builds, and QA testing roles.
               </p>
@@ -131,11 +132,14 @@ export default function Contact() {
                 <span>Copy: <b>{identity.email}</b></span>
               </button>
 
-              {copied && (
-                <div className="copy-toast" role="status" aria-live="polite">
-                  <Check /> {copied}
-                </div>
-              )}
+              {/* Always mounted so screen readers announce the text when it appears. */}
+              <div role="status" aria-live="polite">
+                {copied && (
+                  <div className={`copy-toast${copyOk ? "" : " copy-toast--error"}`}>
+                    {copyOk && <Check />} {copied}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </Reveal>

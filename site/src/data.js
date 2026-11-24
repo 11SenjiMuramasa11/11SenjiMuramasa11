@@ -1,7 +1,7 @@
 export const identity = {
   name: "Justine James Prades",
   handle: "@11SenjiMuramasa11",
-  role: "Back-End Developer & QA Engineer",
+  role: "Backend Developer & QA Engineer",
   email: "justinejamesprades1111@gmail.com",
   github: "https://github.com/11SenjiMuramasa11",
   linkedin: "https://www.linkedin.com/in/jjprades",
@@ -9,23 +9,23 @@ export const identity = {
 
 export const stackCategories = [
   {
-    category: "Frontend",
-    skills: [
-      { name: "HTML5", desc: "Semantic markup, modern web standards, and accessible structure" },
-      { name: "CSS3", desc: "Responsive layout, CSS Grid, Flexbox, and modern CSS variables" },
-      { name: "JavaScript", desc: "ES6+, asynchronous programming, closures, and DOM manipulation" },
-      { name: "TypeScript", desc: "Static typing, interfaces, and maintainable type definitions" },
-      { name: "React", desc: "Component architecture, hooks, state management, and virtual DOM" },
-      { name: "Vite", desc: "Next-generation fast frontend tooling and bundling engine" },
-    ],
-  },
-  {
     category: "Backend",
     skills: [
       { name: "PHP", desc: "Server-side scripting, object-oriented architecture, and MVC patterns" },
       { name: "Laravel", desc: "Eloquent ORM, routing, middleware, authentication, and Artisan CLI" },
       { name: "Node.js", desc: "V8 JavaScript runtime for event-driven, non-blocking network servers" },
       { name: "Express", desc: "Minimalist and flexible Node.js web application framework" },
+    ],
+  },
+  {
+    category: "Quality Assurance & Tools",
+    skills: [
+      { name: "Git", desc: "Distributed version control, branch management, and merge workflows" },
+      { name: "GitHub Actions", desc: "CI/CD automated testing and build deployment workflows" },
+      { name: "Test Planning", desc: "Formulating comprehensive test plans, scope matrices, and exit criteria" },
+      { name: "Test Cases & UAT", desc: "Writing test cases, regression testing, traceability, and acceptance testing" },
+      { name: "PHPUnit", desc: "Unit testing framework for PHP to verify backend integrity" },
+      { name: "ESLint", desc: "Static code analysis to enforce code quality and style standards" },
     ],
   },
   {
@@ -47,14 +47,14 @@ export const stackCategories = [
     ],
   },
   {
-    category: "Quality Assurance & Tools",
+    category: "Frontend",
     skills: [
-      { name: "Git", desc: "Distributed version control, branch management, and merge workflows" },
-      { name: "GitHub Actions", desc: "CI/CD automated testing and build deployment workflows" },
-      { name: "Test Planning", desc: "Formulating comprehensive test plans, scope matrices, and exit criteria" },
-      { name: "Test Cases & UAT", desc: "Writing test cases, regression testing, traceability, and acceptance testing" },
-      { name: "PHPUnit", desc: "Unit testing framework for PHP to verify backend integrity" },
-      { name: "ESLint", desc: "Static code analysis to enforce code quality and style standards" },
+      { name: "HTML5", desc: "Semantic markup, modern web standards, and accessible structure" },
+      { name: "CSS3", desc: "Responsive layout, CSS Grid, Flexbox, and modern CSS variables" },
+      { name: "JavaScript", desc: "ES6+, asynchronous programming, closures, and DOM manipulation" },
+      { name: "TypeScript", desc: "Static typing, interfaces, and maintainable type definitions" },
+      { name: "React", desc: "Component architecture, hooks, state management, and virtual DOM" },
+      { name: "Vite", desc: "Next-generation fast frontend tooling and bundling engine" },
     ],
   },
 ];

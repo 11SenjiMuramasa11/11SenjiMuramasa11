@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring } from "motion/react";
+import { m, useScroll, useSpring } from "motion/react";
 import ParallaxSky from "./components/ParallaxSky.jsx";
 import Hud from "./components/Hud.jsx";
 import CharacterMenu from "./components/CharacterMenu.jsx";
@@ -37,15 +37,16 @@ export default function App() {
 
   return (
     <div className="genshin-app">
-      <a className="skip" href="#main">
-        Skip to content
+      <a className="skip" href="#work">
+        Skip to projects
       </a>
 
       {/* Pure black background */}
       <ParallaxSky />
 
       {/* iOS-smooth Scroll Progress */}
-      <motion.div className="progress" style={{ scaleX }} aria-hidden="true" />
+      <m.div className="progress progress--top" style={{ scaleX }} aria-hidden="true" />
+      <m.div className="progress progress--side" style={{ scaleY: scaleX }} aria-hidden="true" />
 
       {/* Antique Gold Corner Filigree */}
       <Corners />

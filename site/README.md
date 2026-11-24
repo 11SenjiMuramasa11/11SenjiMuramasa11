@@ -1,6 +1,6 @@
 # Justine James Prades — Portfolio
 
-Personal portfolio site. Full-stack developer and QA engineer based in Laguna, Philippines.
+Personal portfolio site. Backend developer and QA engineer based in Laguna, Philippines.
 
 **Live URL:** https://11senjimuramasa11.github.io/11SenjiMuramasa11/ *(update when deployed)*
 
@@ -31,7 +31,7 @@ npm run preview    # preview the production build locally
 site/
 ├── public/
 │   ├── me.webp              # hero photo
-│   ├── portrait.png         # OG/fallback portrait
+│   ├── og-image.jpg         # Link-preview card (1200×630)
 │   ├── favicon.svg
 │   ├── projects/            # project screenshot WebPs
 │   └── certs/               # certificate images (WebP) and PDFs

@@ -1,18 +1,27 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Pick the theme before first paint so there's no dark/light flash.
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Justine James Prades — Back-End Developer &amp; QA Engineer</title>
+    <title>Justine James Prades — Backend Developer &amp; QA Engineer</title>
     <meta
       name="description"
-      content="Portfolio of Justine James Prades — back-end developer and QA engineer. Laravel, React, Node.js, and rigorous sprint-level testing."
+      content="Portfolio of Justine James Prades — backend developer and QA engineer. Laravel, React, Node.js, and rigorous sprint-level testing."
     />
     <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Justine James Prades — Back-End Developer &amp; QA Engineer" />
+    <meta property="og:title" content="Justine James Prades — Backend Developer &amp; QA Engineer" />
     <meta
       property="og:description"
       content="BSIT student at NU Laguna. Building web applications in Laravel and React with strong API design and QA discipline."
@@ -23,19 +32,22 @@
     />
     <meta
       property="og:image"
-      content="https://11senjimuramasa11.github.io/11SenjiMuramasa11/portrait.png"
+      content="https://11senjimuramasa11.github.io/11SenjiMuramasa11/og-image.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Justine Prades in a black blazer beside the title Backend Developer &amp; QA Engineer" />
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Justine James Prades — Back-End Developer &amp; QA Engineer" />
+    <meta name="twitter:title" content="Justine James Prades — Backend Developer &amp; QA Engineer" />
     <meta
       name="twitter:description"
       content="BSIT student at NU Laguna. Building web applications in Laravel and React with strong API design and QA discipline."
     />
     <meta
       name="twitter:image"
-      content="https://11senjimuramasa11.github.io/11SenjiMuramasa11/portrait.png"
+      content="https://11senjimuramasa11.github.io/11SenjiMuramasa11/og-image.jpg"
     />
 
     <link
@@ -51,7 +63,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Marcellus&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Unbounded:wght@800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Unbounded:wght@800&display=swap"
       rel="stylesheet"
     />
   </head>

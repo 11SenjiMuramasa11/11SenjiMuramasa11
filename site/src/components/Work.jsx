@@ -1,38 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import Reveal from "./Reveal.jsx";
+import SectionBar from "./SectionBar.jsx";
 import { sounds } from "../audio.js";
+import { lenis } from "../smoothScroll.js";
 
 // ─── EDITABLE PROJECTS ARRAY ────────────────────────────────────────────────
-// Add new projects by simply appending an object to this array:
-// { title, description, image, stack: [...], links: [{ label, url }] }
+// { id, title, meta, details: [...], image, stack: [...], repo }
 const PROJECTS_DATA = [
+  {
+    id: "cpcnextboard",
+    title: "CPC Nexboard",
+    meta: "2026 · Contributor · Team of three",
+    details: [
+      "Intranet syncing production, inventory, sales and logistics at an active manufacturing company.",
+      "Laravel + MySQL backend, live updates over WebSockets, department permissions, and dashboards.",
+      "Groq AI assistant for demand forecasting.",
+      "Rated 4.12 / 5.00 by the company's staff and IT specialists.",
+    ],
+    image: "projects/cpc-nexboard.webp",
+    stack: ["Laravel", "PHP", "MySQL", "WebSockets", "Groq AI"],
+    repo: "https://github.com/AndreiCarillo-9264/manufacturing-coordination-system",
+  },
   {
     id: "trusthome",
     title: "TrustHome PH",
-    description:
-      "Rental marketplace capstone with document-reviewed listings, conflict-free booking, and a fairness-scored bank property catalog.",
+    meta: "2026 · Contributor · Frontend & QA",
+    details: [
+      "Rental marketplace capstone: document-audited listings, conflict-free booking, and fairness scoring for bank property catalogs.",
+      "Built the settings, trust-evaluation and verification screens.",
+      "Led QA across five sprints: test plans, regression suites, and UAT.",
+    ],
     image: "projects/trusthome.webp",
     stack: ["React", "Vite", "Firebase", "Jest / QA"],
-    links: [
-      {
-        label: "Visit pull request",
-        url: "https://github.com/carilloandrei9264/team-idle/pull/15",
-      },
-    ],
-  },
-  {
-    id: "cpcnextboard",
-    title: "cpcNextboard",
-    description:
-      "Intranet system for real-time coordination between production, inventory, sales, and logistics at an active manufacturing enterprise.",
-    image: "projects/cpc-nexboard.webp",
-    stack: ["Laravel", "PHP", "MySQL", "WebSockets", "Groq AI"],
-    links: [
-      {
-        label: "Visit repository",
-        url: "https://github.com/AndreiCarillo-9264/manufacturing-coordination-system/commit/4b3ed604daca984f0c1bf1991fbfbbab89e3dee5",
-      },
-    ],
+    repo: "https://github.com/carilloandrei9264/team-idle",
   },
 ];
 
@@ -43,21 +43,26 @@ export default function Work() {
   // Keyboard trap / Escape handler for Lightbox modal
   useEffect(() => {
     if (!activeLightbox) return;
-
+    lenis?.stop(); // freeze the page behind the viewer
+    const opener = document.activeElement; // return focus here on close
     const onKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setActiveLightbox(null);
+      if (e.key === "Escape") setActiveLightbox(null);
+      // The close button is the viewer's only control: keep Tab from escaping to the page behind.
+      if (e.key === "Tab") {
+        e.preventDefault();
+        closeBtnRef.current?.focus();
       }
     };
-
     window.addEventListener("keydown", onKeyDown);
-    // Focus close button on open
     setTimeout(() => closeBtnRef.current?.focus(), 50);
-
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      lenis?.start();
+      opener?.focus?.({ preventScroll: true });
+    };
   }, [activeLightbox]);
 
-  const openLightbox = (project) => {
+  const openShot = (project) => {
     sounds.playTab?.();
     setActiveLightbox(project);
   };
@@ -69,128 +74,62 @@ export default function Work() {
 
   return (
     <section className="section section--pure-black" id="work" aria-labelledby="work-title">
+      <Reveal>
+        <SectionBar id="work-title" title="Projects" meta="Selected Work" emblem="sigil" />
+      </Reveal>
+
       <div className="wrap wrap--wide">
-        {/* Section Header */}
-        <Reveal>
-          <div className="work-header-row">
-            <div>
-              <span className="section-eyebrow">PORTFOLIO</span>
-              <h2 id="work-title" className="work-section-title">
-                Selected work
-              </h2>
-            </div>
-            <a
-              href="https://github.com/11SenjiMuramasa11?tab=repositories"
-              target="_blank"
-              rel="noreferrer"
-              className="work-all-btn"
-              onMouseEnter={() => sounds.playHover?.()}
-            >
-              <span>SEE ALL REPOSITORIES</span>
-              <span className="work-plus-icon">+</span>
-            </a>
-          </div>
-        </Reveal>
 
-        {/* 2-Card Clean Grid / Stack */}
-        <div className="projects-grid">
-          {PROJECTS_DATA.map((project, idx) => (
-            <Reveal key={project.id} delay={idx * 0.08}>
-              <article className="project-card">
-                {/* Browser-style frame (16:10 aspect ratio) */}
-                <div
-                  className="project-browser-frame"
-                  onClick={() => openLightbox(project)}
-                  onMouseEnter={() => sounds.playHover?.()}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      openLightbox(project);
-                    }
-                  }}
-                  aria-label={`View full screenshot of ${project.title}`}
-                  title="Click to view full screenshot"
-                >
-                  <div className="browser-topbar">
-                    <div className="browser-dots">
-                      <span className="browser-dot browser-dot--red" />
-                      <span className="browser-dot browser-dot--yellow" />
-                      <span className="browser-dot browser-dot--green" />
-                    </div>
-                    <span className="browser-title-hint">{project.title}</span>
-                    <span className="browser-zoom-pill">Click to expand</span>
-                  </div>
-
-                  <div className="project-image-wrap">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} interface preview`}
-                      className="project-screenshot-img"
-                      width="760"
-                      height="475"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className="project-card__info">
-                  <h3 className="project-card__title">{project.title}</h3>
-                  <p className="project-card__desc">{project.description}</p>
-
-                  <div className="project-card__bottom">
-                    {/* Tech stack badges */}
-                    <div className="project-card__tags">
-                      {project.stack.map((tech) => (
-                        <span key={tech} className="project-tag">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Existing Links */}
-                    <div className="project-card__links">
-                      {project.links.map((link) => (
-                        <a
-                          key={link.url}
-                          href={link.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="project-ext-link"
-                          onMouseEnter={() => sounds.playHover?.()}
-                        >
-                          <span>{link.label}</span>
-                          <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="ext-link-svg"
-                            aria-hidden="true"
-                          >
-                            <line x1="7" y1="17" x2="17" y2="7" />
-                            <polyline points="7 7 17 7 17 17" />
-                          </svg>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
+        {/* Both projects in view, each laid out like the Talents pane: shot, title over the gold rule, details. */}
+        <div className="work-cards">
+          {PROJECTS_DATA.map((project) => (
+            <article key={project.id} className="work-entry" aria-labelledby={`proj-${project.id}`}>
+              <button
+                type="button"
+                className="work-shot"
+                onClick={() => openShot(project)}
+                onMouseEnter={() => sounds.playHover?.()}
+                aria-label={`View full screenshot of ${project.title}`}
+              >
+                <img src={project.image} alt="" width="760" height="475" loading="lazy" decoding="async" draggable="false" />
+              </button>
+              <h3 className="work-info__title" id={`proj-${project.id}`}>{project.title}</h3>
+              <p className="work-info__meta">{project.meta}</p>
+              <div className="char-panel__divider" aria-hidden="true" />
+              <ul className="work-info__details">
+                {project.details.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+              <div className="project-card__tags">
+                {project.stack.map((tech) => (
+                  <span key={tech} className="project-tag">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="project-ext-link work-info__repo"
+                onMouseEnter={() => sounds.playHover?.()}
+              >
+                <span>View on GitHub</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="ext-link-svg" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </article>
           ))}
         </div>
       </div>
 
-      {/* Lightbox Modal */}
       {activeLightbox && (
         <div
           className="lightbox-backdrop"
+          data-lenis-prevent
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
@@ -210,11 +149,7 @@ export default function Work() {
               </button>
             </div>
             <div className="lightbox-body">
-              <img
-                src={activeLightbox.image}
-                alt={`${activeLightbox.title} full screenshot`}
-                className="lightbox-img"
-              />
+              <img src={activeLightbox.image} alt={`${activeLightbox.title} full screenshot`} className="lightbox-img" />
             </div>
           </div>
         </div>

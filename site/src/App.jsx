@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { m, useScroll, useSpring } from "motion/react";
+import { lenis, scrollToTarget } from "./smoothScroll.js";
 import ParallaxSky from "./components/ParallaxSky.jsx";
 import Hud from "./components/Hud.jsx";
 import CharacterMenu from "./components/CharacterMenu.jsx";
@@ -34,6 +36,18 @@ export default function App() {
     damping: 28,
     restDelta: 0.001,
   });
+
+  // Deep links like #contact (the GitHub README cards use them): the browser looks for the hash
+  // before React renders the section, so jump there once mounted, and again after fonts and images settle.
+  useEffect(() => {
+    const el = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (!el) return;
+    // Lenis caches the page height; re-measure first or it clamps the jump to the top
+    const go = () => { lenis?.resize(); scrollToTarget(el, { instant: true }); };
+    requestAnimationFrame(go);
+    if (document.readyState !== "complete") window.addEventListener("load", go, { once: true });
+    return () => window.removeEventListener("load", go);
+  }, []);
 
   return (
     <div className="genshin-app">

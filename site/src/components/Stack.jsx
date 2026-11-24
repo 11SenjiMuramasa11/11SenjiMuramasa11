@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { stackCategories } from "../data.js";
 import Reveal from "./Reveal.jsx";
 import SectionBar from "./SectionBar.jsx";
 import { sounds } from "../audio.js";
+import { DiamondIcon } from "./CharacterMenu.jsx";
 
 // Clean SVG Icons for technologies
 function TechIcon({ name }) {
@@ -11,7 +12,7 @@ function TechIcon({ name }) {
     case "HTML5":
       return <span className="tech-badge-icon" style={{ color: "#e34f26" }}>HTML</span>;
     case "CSS3":
-      return <span className="tech-badge-icon" style={{ color: "#1572b6" }}>CSS</span>;
+      return <span className="tech-badge-icon" style={{ color: "#3d8fd9" }}>CSS</span>;
     case "JavaScript":
       return <span className="tech-badge-icon" style={{ color: "#f7df1e", background: "#323330", padding: "1px 3px", borderRadius: "2px" }}>JS</span>;
     case "TypeScript":
@@ -19,7 +20,7 @@ function TechIcon({ name }) {
     case "React":
       return <span className="tech-badge-icon" style={{ color: "#61dafb" }}>⚛</span>;
     case "Vite":
-      return <span className="tech-badge-icon" style={{ color: "#646cff" }}>⚡</span>;
+      return <span className="tech-badge-icon" style={{ color: "#8b91ff" }}>⚡</span>;
     case "PHP":
       return <span className="tech-badge-icon" style={{ color: "#777bb4" }}>PHP</span>;
     case "Laravel":
@@ -27,11 +28,11 @@ function TechIcon({ name }) {
     case "Node.js":
       return <span className="tech-badge-icon" style={{ color: "#539e43" }}>Node</span>;
     case "Express":
-      return <span className="tech-badge-icon" style={{ color: "#ffffff" }}>ex</span>;
+      return <span className="tech-badge-icon" style={{ color: "currentColor" }}>ex</span>;
     case "MySQL":
       return <span className="tech-badge-icon" style={{ color: "#00758f" }}>🐬</span>;
     case "SQLite":
-      return <span className="tech-badge-icon" style={{ color: "#003b57" }}>SQL</span>;
+      return <span className="tech-badge-icon" style={{ color: "#4aa3c9" }}>SQL</span>;
     case "Firebase":
       return <span className="tech-badge-icon" style={{ color: "#ffca28" }}>🔥</span>;
     case "AWS":
@@ -62,92 +63,70 @@ function TechIcon({ name }) {
 }
 
 export default function Stack() {
-  const [activeTooltip, setActiveTooltip] = useState(null);
+  // Genshin "Talents" screen: categories on the left, the chosen one's skills in a detail pane.
+  const [active, setActive] = useState(0);
+  const cat = stackCategories[active];
 
-  const handleMouseEnter = (skill, e) => {
-    sounds.playHover();
-    const rect = e.currentTarget.getBoundingClientRect();
-    setActiveTooltip({
-      name: skill.name,
-      desc: skill.desc,
-      x: rect.left + rect.width / 2,
-      y: rect.top,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setActiveTooltip(null);
+  const choose = (i) => {
+    if (i === active) return;
+    sounds.playTab?.();
+    setActive(i);
   };
 
   return (
     <section className="section section--sky" id="stack" aria-labelledby="stack-title">
       <Reveal>
-        <SectionBar
-          id="stack-title"
-          title="Stack"
-          meta="Core Technologies & Tooling"
-          emblem="star"
-        />
+        <SectionBar id="stack-title" title="Stack" meta="Core Technologies & Tooling" emblem="tower" />
       </Reveal>
 
       <div className="wrap">
         <Reveal delay={0.06}>
-          <div className="pro-stack-container">
-            <h2 className="pro-stack-main-title">STACK</h2>
-
-            <div className="pro-stack-rows">
-              {stackCategories.map((cat) => (
-                <div key={cat.category} className="pro-stack-row">
-                  <div className="pro-stack-row__label">
-                    <span>{cat.category}</span>
-                  </div>
-
-                  <div className="pro-stack-row__items">
-                    {cat.skills.map((skill) => (
-                      <div
-                        key={skill.name}
-                        className="pro-tech-chip"
-                        onMouseEnter={(e) => handleMouseEnter(skill, e)}
-                        onMouseLeave={handleMouseLeave}
-                        tabIndex={0}
-                        role="button"
-                        aria-label={`${skill.name}: ${skill.desc}`}
-                      >
-                        <TechIcon name={skill.name} />
-                        <span className="pro-tech-name">{skill.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          <div className="talents">
+            <div className="talents__list" role="group" aria-label="Skill categories">
+              {stackCategories.map((c, i) => (
+                <button
+                  key={c.category}
+                  type="button"
+                  className={`talents__tab${i === active ? " is-active" : ""}`}
+                  aria-pressed={i === active}
+                  aria-controls="talents-pane"
+                  onClick={() => choose(i)}
+                  onMouseEnter={() => sounds.playHover?.()}
+                >
+                  <DiamondIcon filled={i === active} />
+                  <span className="talents__tab-label">{c.category}</span>
+                  <span className="talents__tab-count">{c.skills.length}</span>
+                </button>
               ))}
             </div>
 
-            {/* Floating Interactive Hover Tooltip */}
-            <AnimatePresence>
-              {activeTooltip && (
-                <motion.div
-                  className="pro-stack-tooltip"
-                  initial={{ opacity: 0, y: 6, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 4, scale: 0.96 }}
-                  transition={{ duration: 0.16 }}
-                  style={{
-                    position: "fixed",
-                    left: `${activeTooltip.x}px`,
-                    top: `${activeTooltip.y - 12}px`,
-                    transform: "translate(-50%, -100%)",
-                    zIndex: 9999,
-                    pointerEvents: "none",
-                  }}
+            <div className="talents__pane" id="talents-pane" aria-live="polite">
+              <AnimatePresence mode="wait" initial={false}>
+                <m.div
+                  key={cat.category}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
                 >
-                  <div className="tooltip-inner">
-                    <b className="tooltip-title">{activeTooltip.name}</b>
-                    <p className="tooltip-desc">{activeTooltip.desc}</p>
-                  </div>
-                  <div className="tooltip-arrow" />
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <h3 className="talents__title">{cat.category}</h3>
+                  <div className="char-panel__divider" aria-hidden="true" />
+                  <ul className="talents__rows">
+                    {cat.skills.map((skill, i) => (
+                      <li key={skill.name} className={`talents__row${i % 2 === 1 ? " talents__row--alt" : ""}`}>
+                        <span className="talents__skill">
+                          <span aria-hidden="true" style={{ display: "contents" }}>
+                            <TechIcon name={skill.name} />
+                          </span>
+                          {skill.name}
+                        </span>
+                        <span className="talents__desc">{skill.desc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </m.div>
+              </AnimatePresence>
+            </div>
           </div>
         </Reveal>
       </div>

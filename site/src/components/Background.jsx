@@ -17,15 +17,6 @@ const CERTS_DATA = [
     desc: "Demonstrates foundational knowledge in network security, defense-in-depth, security policies, and mitigation techniques.",
   },
   {
-    id: "databases",
-    title: "IT Specialist: Databases",
-    issuer: "Certiport · Pearson VUE",
-    date: "March 2025",
-    image: "certs/databases.webp",
-    pdf: "certs/databases.pdf",
-    desc: "Covers relational database fundamentals, normalization, queries, stored procedures, data integrity, and ACID properties.",
-  },
-  {
     id: "salesforce-agentblazer",
     title: "Salesforce Agentblazer Workshop",
     issuer: "Salesforce Trailhead",
@@ -33,6 +24,15 @@ const CERTS_DATA = [
     image: "certs/salesforce-agentblazer.webp",
     pdf: "certs/salesforce-agentblazer.pdf",
     desc: "Autonomous AI agent development, Trailhead prompt design, and enterprise workflow automation workshop.",
+  },
+  {
+    id: "databases",
+    title: "IT Specialist: Databases",
+    issuer: "Certiport · Pearson VUE",
+    date: "March 2025",
+    image: "certs/databases.webp",
+    pdf: "certs/databases.pdf",
+    desc: "Covers relational database fundamentals, normalization, queries, stored procedures, data integrity, and ACID properties.",
   },
 ];
 
@@ -43,29 +43,15 @@ export default function Background() {
         <SectionBar
           id="cert-title"
           title="Certifications"
-          meta="Accredited Qualifications"
-          emblem="book"
+          meta={
+            <a href={identity.linkedin} target="_blank" rel="noreferrer" className="cert-linkedin-link secbar__link" onMouseEnter={() => sounds.playHover?.()} > <span>View on LinkedIn</span> <Arrow /> </a>
+          }
+          emblem="shield"
         />
       </Reveal>
 
       <div className="wrap">
         <Reveal delay={0.06}>
-          <div className="cert-header-bar">
-            <div>
-              <span className="section-eyebrow">ACCREDITATIONS</span>
-              <h2 className="cert-section-heading">Industry Certifications</h2>
-            </div>
-            <a
-              href={identity.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="cert-linkedin-link"
-              onMouseEnter={() => sounds.playHover?.()}
-            >
-              <span>View on LinkedIn</span>
-              <Arrow />
-            </a>
-          </div>
 
           {/* 3-Column Certificate Cards Grid */}
           <div className="cert-cards-grid">

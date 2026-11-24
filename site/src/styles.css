@@ -3,23 +3,58 @@
    Palette: deep teal sky, parchment, antique gold, cyan accents
    ============================================================ */
 
+/* ── Theme tokens ───────────────────────────────────────────────────
+   Primitive palette → semantic roles. Components read only the semantic
+   names (--bg, --fg, --gold, --accent, --link…), so a theme is just a
+   different set of values below. Dark = default; light = [data-theme="light"].
+   *-rgb tokens are space-separated channels for rgb(var(--x-rgb) / alpha). */
 :root {
-  --void: #000000;
-  --deep: #000000;
-  --teal: #050505;
-  --navy: #080808;
-  --navy-2: #0f0f0f;
+  color-scheme: dark;
 
-  --gold: #c9a86a;
+  /* surfaces */
+  --bg: #0e0e12;
+  --bg-2: #16161c;
+  --surface: #1b1b22;
+  --glass-rgb: 14 14 18;
+
+  /* text */
+  --fg: #ffffff;
+  --fg-rgb: 255 255 255;
+  --cream: #eef0f4;
+  --mist: #a3a8b5;
+  --muted: #7d8290;
+
+  /* gold: lines, frames, small highlights */
+  --gold: #d9b66a;
+  --gold-rgb: 217 182 106;
   --gold-hi: #f0dcab;
+  --gold-text: var(--gold);   /* small (≤12px) gold text */
   --gold-deep: #8b6c3b;
-  --gold-line: rgba(201, 168, 106, 0.28);
-  --gold-faint: rgba(201, 168, 106, 0.12);
+  --gold-line: rgb(var(--gold-rgb) / 0.28);
+  --gold-faint: rgb(var(--gold-rgb) / 0.12);
+  --on-gold: #0e0e12;
 
+  /* accent: crimson = current/active marker */
+  --accent: #d0353f;
+
+  --shadow-rgb: 0 0 0;
+  --success-rgb: 52 211 153;
+
+  /* readable secondary text, tuned per theme to stay ≥4.5:1 */
+  --text-2: rgb(var(--fg-rgb) / 0.74);
+  --text-3: rgb(var(--fg-rgb) / 0.62);
+
+  /* legacy names still read by older rules */
+  --void: var(--bg);
+  --deep: var(--bg);
+  --teal: var(--bg);
+  --navy: var(--bg);
+  --navy-2: var(--bg-2);
   --blue: #3b82f6;
   --blue-glow: rgba(59, 130, 246, 0.35);
   --blue-dim: rgba(59, 130, 246, 0.12);
-
+  --cyan: #60a5fa;
+  --cyan-dim: rgba(96, 165, 250, 0.3);
   --paper: #f6ecd7;
   --paper-2: #efe1c4;
   --paper-3: #e4d3ae;
@@ -27,19 +62,44 @@
   --ink-soft: #6d5a3d;
   --ink-faint: #8f7c5c;
 
-  --cyan: #60a5fa;
-  --cyan-dim: rgba(96, 165, 250, 0.3);
-
-  --cream: #f1f5f9;
-  --mist: #94a3b8;
-  --muted: #64748b;
-
-  --display: "Marcellus", "Times New Roman", Georgia, serif;
+  /* Headings: a rounded bold sans in the spirit of Genshin's in-game type (the game's own font is proprietary). */
+  --display: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
   --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
 
   --gutter: clamp(16px, 4vw, 46px);
   --max: 1180px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Light: Genshin menu parchment, lightened. Ink-navy text, deeper gold so
+   lines and small gold text keep contrast on ivory. */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #faf7f0;
+  --bg-2: #f2ecdf;
+  --surface: #ffffff;
+  --glass-rgb: 255 253 248;
+
+  --fg: #2b3244;
+  --fg-rgb: 43 50 68;
+  --cream: #2b3244;
+  --mist: #545d72;
+  --muted: #6b7385;
+
+  --gold: #8a6a2c;          /* deep enough for small gold text on ivory (4.7:1) */
+  --gold-rgb: 138 106 44;
+  --gold-hi: #7d5f27;
+  --gold-text: #7d5f27;       /* deeper on ivory so 12px text clears 4.5:1 even after anti-aliasing */
+  --gold-deep: #c9a86a;
+  --on-gold: #ffffff;
+
+  --accent: #9b1c2c;        /* deep crimson: the signature marker, 7:1 on ivory */
+
+  --shadow-rgb: 120 98 62;
+  --text-2: rgb(var(--fg-rgb) / 0.86);
+  --text-3: rgb(var(--fg-rgb) / 0.76);
+  --success-rgb: 26 128 84;
 }
 
 *,
@@ -50,12 +110,13 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a0a0a;
+  background-color: var(--bg);
+  scrollbar-width: none;
 }
 
 body {
   margin: 0;
-  background: #0a0a0a !important;
+  background: var(--bg) !important;
   color: var(--cream);
   font-family: var(--body);
   font-size: 16px;
@@ -104,7 +165,7 @@ p {
 }
 
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--gold); /* one focus colour per theme: ≥3:1 on dark and on ivory */
   outline-offset: 3px;
 }
 
@@ -156,7 +217,7 @@ p {
   inset: 10px;
   z-index: 90;
   pointer-events: none;
-  border: 1px solid rgba(201, 168, 106, 0.16);
+  border: 1px solid rgb(var(--gold-rgb) / 0.16);
 }
 
 .frame__corner {
@@ -252,27 +313,7 @@ p {
 
 /* ---------- book primitives ---------- */
 
-.book {
-  position: relative;
-  display: grid;
-  background:
-    linear-gradient(180deg, rgba(255, 252, 243, 0.9), transparent 30%),
-    var(--paper);
-  border: 1px solid var(--gold-deep);
-  border-radius: 5px;
-  box-shadow:
-    0 34px 70px rgba(0, 0, 0, 0.5),
-    0 2px 0 rgba(255, 255, 255, 0.28) inset;
-}
 
-.book::after {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border: 1px solid rgba(139, 108, 59, 0.32);
-  border-radius: 2px;
-  pointer-events: none;
-}
 
 .page {
   position: relative;
@@ -301,13 +342,6 @@ p {
 
 /* showcase page */
 
-.tabs {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  border-bottom: 1px solid rgba(139, 108, 59, 0.3);
-  padding-bottom: 10px;
-}
 
 /* ---------- buttons ---------- */
 
@@ -324,11 +358,6 @@ p {
 
 /* ---------- work / quest log ---------- */
 
-.quest {
-  display: grid;
-  grid-template-columns: 322px minmax(0, 1fr);
-  align-items: start;
-}
 
 /* ---------- footer ---------- */
 
@@ -354,7 +383,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(185, 203, 214, 0.5);
+  color: rgb(var(--fg-rgb) / 0.45);
 }
 
 .footer__note {
@@ -364,20 +393,25 @@ p {
   gap: 12px;
 }
 
-.footer__note::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201, 168, 106, 0.4), transparent);
-  min-width: 16px;
-}
-
 .footer__diamond {
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--gold);
   flex-shrink: 0;
+  gap: 14px;
+}
+
+/* Equal lines on both sides so the diamond looks centred, not just measures centred. */
+.footer__diamond::before,
+.footer__diamond::after {
+  content: "";
+  width: clamp(40px, 6vw, 96px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--gold-rgb) / 0.55));
+}
+.footer__diamond::after {
+  transform: scaleX(-1);
 }
 
 .footer__diamond svg {
@@ -392,14 +426,6 @@ p {
   align-items: center;
   gap: 12px;
   justify-content: flex-end;
-}
-
-.footer__uid::before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.4));
-  min-width: 16px;
 }
 
 /* Under 700px: stack vertically, hide lines, bottom padding for Menu pill */
@@ -427,19 +453,7 @@ p {
 
 /* ---------- responsive ---------- */
 
-@media (max-width: 1080px) {
-  .quest {
-    grid-template-columns: 274px minmax(0, 1fr);
-  }
-}
 
-@media (max-width: 900px) {
-
-  .quest {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-}
 
 @media (max-width: 760px) {
   .frame {
@@ -490,11 +504,18 @@ p {
     scroll-behavior: auto;
   }
 
+  /* Reduced motion = no movement, not no feedback: keyframe animations (slides, bounce) end
+     instantly, and transitions keep only their colour/opacity part, so hovers and fade-ins stay soft. */
   *,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-property: opacity, color, background-color, border-color !important;
   }
 }
+
+/* Hide the browser's scrollbar (the gold progress bar on the right shows position instead).
+   The page still scrolls normally with wheel, trackpad, keys and touch. */
+html::-webkit-scrollbar { display: none; }
+

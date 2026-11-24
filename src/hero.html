@@ -2,72 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Nunito+Sans:ital,wght@0,700;0,800;1,400&display=block" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Nunito+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400&display=block" rel="stylesheet" />
 <style>
+  /* Mirrors the portfolio's opening screen (CharacterMenu.jsx), dark theme. */
+  :root { --bg: #0e0e12; --fg: #fff; --gold: #d9b66a; --gold-hi: #f0dcab; --accent: #d0353f; --text-2: rgba(255,255,255,.74); --hair: rgba(255,255,255,.06); }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: transparent; }
-  .card {
-    position: relative;
-    width: 1000px;
-    height: 420px;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #0a0a0a;
-    font-family: "Nunito Sans", sans-serif;
-  }
-  /* thin frame + corner brackets, same as the portfolio's .frame */
-  .frame { position: absolute; inset: 12px; border: 1px solid rgba(201,168,106,.16); border-radius: 8px; z-index: 4; }
-  .corner { position: absolute; width: 54px; height: 54px; color: #c9a86a; opacity: .75; }
+  .card { position: relative; width: 1200px; height: 600px; border-radius: 14px; overflow: hidden; background: var(--bg); font-family: "Nunito Sans", sans-serif; color: var(--text-2); }
+  .frame { position: absolute; inset: 10px; border: 1px solid rgba(217,182,106,.16); border-radius: 6px; z-index: 6; }
+  .corner { position: absolute; width: 40px; height: 40px; color: var(--gold); opacity: .7; }
   .corner svg { width: 100%; height: 100%; display: block; }
-  .tl { top: -1px; left: -1px; }
-  .tr { top: -1px; right: -1px; transform: scaleX(-1); }
-  .bl { bottom: -1px; left: -1px; transform: scaleY(-1); }
-  .br { bottom: -1px; right: -1px; transform: scale(-1); }
+  .tl { top: -1px; left: -1px; } .tr { top: -1px; right: -1px; transform: scaleX(-1); }
+  .bl { bottom: -1px; left: -1px; transform: scaleY(-1); } .br { bottom: -1px; right: -1px; transform: scale(-1); }
 
-  .label {
-    position: absolute; top: 34px; left: 44px; z-index: 4;
-    font-size: 10.5px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: #c9a86a;
-  }
-  .name {
-    position: absolute; z-index: 1;
-    font-family: "Archivo", sans-serif; font-weight: 900; font-stretch: 125%;
-    font-size: 112px; line-height: .8; letter-spacing: -.035em; color: #fff; white-space: nowrap;
-  }
-  .back { left: 104px; top: 92px; }
-  .front { left: 330px; top: 214px; z-index: 3; }
-  .photo {
-    position: absolute; z-index: 2; bottom: 0; left: 560px; transform: translateX(-50%);
-    height: 392px;
-    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
-  }
-  .quote {
-    position: absolute; z-index: 4; left: 44px; bottom: 72px;
-    padding-left: 12px; border-left: 1px solid #c9a86a;
-    font-style: italic; font-size: 14px; color: #f0dcab;
-  }
-  .captions {
-    position: absolute; z-index: 4; left: 44px; right: 44px; bottom: 32px;
-    display: flex; justify-content: space-between;
-    font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(185,203,214,.62);
-  }
-  .captions span::before { content: ""; display: inline-block; width: 5px; height: 5px; background: #c9a86a; transform: rotate(45deg); margin-right: 9px; vertical-align: 1px; }
+  .brand { position: absolute; top: 28px; left: 32px; z-index: 6; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; color: var(--gold); }
+
+  .nav { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); z-index: 6; display: flex; flex-direction: column; gap: 16px; }
+  .nav span { display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: var(--text-2); }
+  .nav i { width: 8px; height: 8px; border: 1.2px solid rgba(255,255,255,.55); transform: rotate(45deg); }
+  .nav .on { font-size: 18px; font-weight: 800; color: var(--fg); text-shadow: 0 0 14px rgba(255,255,255,.25); }
+  .nav .on i { width: 11px; height: 11px; background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px rgba(208,53,63,.7); }
+
+  .name { position: absolute; z-index: 1; font-family: "Archivo", sans-serif; font-weight: 900; font-stretch: 125%; font-size: 96px; line-height: .8; letter-spacing: -.02em; color: var(--fg); white-space: nowrap; }
+  .back { left: 168px; top: 112px; }
+  .front { left: 250px; top: 300px; z-index: 3; }
+  .photo { position: absolute; z-index: 2; bottom: -40px; left: 540px; transform: translateX(-50%); height: 590px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 97%); }
+
+  .panel { position: absolute; z-index: 6; right: 36px; top: 112px; width: 300px; }
+  .role { font-size: 15px; font-weight: 600; color: var(--gold); }
+  .sub { margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.62); }
+  .divider { height: 1px; margin: 16px 0 14px; background: linear-gradient(90deg, var(--gold), rgba(217,182,106,.2) 60%, transparent); }
+  .stats { border-top: 1px solid var(--hair); }
+  .stat { display: flex; justify-content: space-between; padding: 9px 10px; border-bottom: 1px solid var(--hair); font-size: 13px; }
+  .stat:nth-child(even) { background: rgba(255,255,255,.03); }
+  .stat span { color: rgba(255,255,255,.5); font-weight: 500; }
+  .stat b { color: var(--fg); font-weight: 700; }
+  .desc { margin-top: 16px; font-size: 13px; line-height: 1.65; }
+  .quote { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--gold); font-style: italic; font-size: 12.5px; color: var(--gold); }
+
+  .socials { position: absolute; z-index: 6; left: 32px; bottom: 30px; display: flex; gap: 9px; }
+  .socials span { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.16); background: rgba(14,14,18,.8); display: grid; place-items: center; color: var(--gold); }
+  .socials svg { width: 14px; height: 14px; }
+  .cv { position: absolute; z-index: 6; right: 32px; bottom: 30px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px; border: 1px solid var(--gold);
+    background: rgba(14,14,18,.8); color: var(--gold-hi); font-size: 11.5px; font-weight: 700; letter-spacing: .12em; }
+  .cv svg { width: 13px; height: 13px; }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="frame">
-    __CORNERS__
-  </div>
-  <div class="label">Back-end developer &amp; QA engineer</div>
+  <div class="frame">__CORNERS__</div>
+  <div class="brand">PORTFOLIO</div>
+  <div class="nav"><span class="on"><i></i>About</span><span><i></i>Projects</span><span><i></i>Stack</span><span><i></i>Certifications</span><span><i></i>Contact</span></div>
   <div class="name back">JUSTINE</div>
   <img class="photo" src="__PHOTO__" alt="" />
   <div class="name front">PRADES</div>
-  <div class="quote">"I build the API, then try to break it."</div>
-  <div class="captions">
-    <span>BSIT · NU Laguna</span>
-    <span>Laravel · React</span>
-    <span>__URL__</span>
+  <div class="panel">
+    <p class="role">Backend Developer &amp; QA Engineer</p>
+    <p class="sub">BSIT · National University Laguna</p>
+    <div class="divider"></div>
+    <div class="stats">__STATS__</div>
+    <p class="desc">__DESC__</p>
+    <p class="quote">"__QUOTE__"</p>
   </div>
+  <div class="socials"><span>__I_GITHUB__</span><span>__I_LINKEDIN__</span><span>__I_MAIL__</span></div>
+  <div class="cv">__I_FILE__VIEW CV</div>
 </div>
 </body>
 </html>

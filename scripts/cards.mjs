@@ -47,7 +47,7 @@ export const stats = [
 
 const projects = [
   {
-    name: "CPC Nexboard", shot: "src/projects/cpcnextboard.webp", meta: "2026 · Contributor · Team of three",
+    name: "CPC Nexboard", shot: "scripts/projects/cpcnextboard.webp", meta: "2026 · Contributor · Team of three",
     details: [
       "Intranet syncing production, inventory, sales and logistics at an active manufacturing company.",
       "Laravel + MySQL backend, live updates over WebSockets, department permissions, and dashboards.",
@@ -57,7 +57,7 @@ const projects = [
     tech: ["Laravel", "PHP", "MySQL", "WebSockets", "Groq AI"],
   },
   {
-    name: "TrustHome PH", shot: "src/projects/trusthome.webp", meta: "2026 · Contributor · Frontend & QA",
+    name: "TrustHome PH", shot: "scripts/projects/trusthome.webp", meta: "2026 · Contributor · Frontend & QA",
     details: [
       "Rental marketplace capstone: document-audited listings, conflict-free booking, and fairness scoring for bank property catalogs.",
       "Built the settings, trust-evaluation and verification screens.",

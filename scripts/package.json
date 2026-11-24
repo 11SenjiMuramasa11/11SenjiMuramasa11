@@ -5,9 +5,9 @@
   "description": "Generator for the images in my GitHub profile README",
   "type": "module",
   "scripts": {
-    "render": "node src/render.mjs",
-    "preview": "node src/preview-readme.mjs",
-    "check-links": "node src/check-links.mjs"
+    "render": "node render.mjs",
+    "preview": "node preview-readme.mjs",
+    "check-links": "node check-links.mjs"
   },
   "devDependencies": {
     "marked": "^18.2.1",

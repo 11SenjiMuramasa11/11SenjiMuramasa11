@@ -1,7 +1,7 @@
 /**
  * check-links.mjs — checks every href in README.md returns 200.
  *
- * Usage: node src/check-links.mjs
+ * Usage: node check-links.mjs (from scripts/)
  */
 
 import { readFileSync } from "node:fs";
@@ -35,9 +35,9 @@ for (const [, p] of readme.matchAll(/src="([^"h][^"]*)"/g)) {
   ok ? pass++ : fail++;
 }
 
-// GitHub links any unwrapped image to its own blob page, so every <img> must sit inside an external <a>
+// GitHub links any unwrapped image to its own blob page, so every <img> must sit inside an external or #anchor <a>
 const unwrapped = [...readme.matchAll(/(<a\s[^>]*href="([^"]*)"[^>]*>\s*)?<img\s[^>]*src="([^"]+)"/g)]
-  .filter(([, a, href]) => !a || !/^(https?:|mailto:)/.test(href))
+  .filter(([, a, href]) => !a || !/^(https?:|mailto:|#)/.test(href))
   .map((m) => m[3]);
 if (/!\[[^\]]*\]\(/.test(readme)) unwrapped.push("markdown ![]() image");
 for (const s of unwrapped) console.log(`  ✗  not linked to an external page: ${s}`);

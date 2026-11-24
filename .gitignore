@@ -5,4 +5,4 @@ site/node_modules/
 site/dist/
 node_modules/
 preview/
-src/tmp/
+scripts/tmp/

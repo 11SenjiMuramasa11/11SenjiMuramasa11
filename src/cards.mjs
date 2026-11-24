@@ -93,10 +93,25 @@ const channels = [
 export const DESC = "BSIT student at National University (NU Laguna). I build backend systems in Laravel: API contracts, databases, and integrations, then test them hard with sprint-level QA.";
 export const QUOTE = "I build the API, then try to break it.";
 
-// The hero banner is the About screen (as on the site), so there is no separate About card.
+// Each card gets an anchor (`anchor`) so the nav bar at the top of the README scrolls to it.
 export const cards = [
   {
-    slug: "work", href: `${SITE}#work`,
+    slug: "about", anchor: "about", href: SITE,
+    alt: `About. Backend Developer and QA Engineer, BSIT at National University Laguna. ${DESC} "${QUOTE}" ${stats.map(([k, v]) => `${k}: ${v}.`).join(" ")} Opens my portfolio.`,
+    body: `${secbar("About", "Character Info", "scales")}
+      <div class="about">
+        <div>
+          <p class="role">Backend Developer &amp; QA Engineer</p>
+          <p class="sub">BSIT · National University Laguna</p>
+          <div class="divider"></div>
+          <p class="body">${DESC}</p>
+          <p class="quote">"${QUOTE}"</p>
+        </div>
+        <div class="stats">${stats.map(([k, v]) => `<div class="stat"><span>${k}</span><b>${v}</b></div>`).join("")}</div>
+      </div>`,
+  },
+  {
+    slug: "work", anchor: "projects", href: `${SITE}#work`,
     alt: `Projects. ${projects.map((p) => `${p.name}, ${p.meta}, built with ${p.tech.join(", ")}: ${p.details.join(" ")}`).join(" ")} Opens the projects section of my portfolio.`,
     body: `${secbar("Projects", "Selected Work", "sigil")}
       <div class="works">${projects.map((p) => `
@@ -111,18 +126,18 @@ export const cards = [
       </div>`,
   },
   {
-    slug: "stack", href: `${SITE}#stack`,
+    slug: "stack", anchor: "stack", href: `${SITE}#stack`,
     alt: `Stack. ${stack.map(([g, items]) => `${g}: ${items.map(([n]) => n).join(", ")}.`).join(" ")} Opens the stack section of my portfolio.`,
     body: `${secbar("Stack", "Core Technologies &amp; Tooling", "tower")}
-      <div class="stack-wrap">${stack.map(([g, items], i) => `
+      <div class="stack-wrap">${stack.map(([g, items]) => `
         <div class="talent">
-          <div class="tab"><span class="diamond${i === 0 ? " on" : ""}"></span>${g}<span class="count">${items.length}</span></div>
+          <div class="tab"><span class="diamond"></span>${g}<span class="count">${items.length}</span></div>
           <div class="skills">${items.map(([n, icon]) => skill(n, icon)).join("")}</div>
         </div>`).join("")}
       </div>`,
   },
   {
-    slug: "certifications", href: `${SITE}#certifications`,
+    slug: "certifications", anchor: "certifications", href: `${SITE}#certifications`,
     alt: `Certifications. ${certs.map(([t, i, d, , desc]) => `${t}, ${i}, ${d}: ${desc}`).join(" ")} Opens the certifications section of my portfolio, where each certificate opens its PDF.`,
     body: `${secbar("Certifications", `View on LinkedIn${ARROW}`, "shield").replace('class="meta"', 'class="meta" style="color:#d9b66a;text-transform:none;letter-spacing:0;font-size:14px;font-weight:600"')}
       <div class="certs">${certs.map(([t, i, d, file, desc]) => `
@@ -133,7 +148,7 @@ export const cards = [
       </div>`,
   },
   {
-    slug: "contact", href: `${SITE}#contact`,
+    slug: "contact", anchor: "contact", href: `${SITE}#contact`,
     alt: `Contact. Let's connect. Open to software engineering internships, collaborative builds, and QA testing roles. ${channels.map(([, k, v]) => `${k}: ${v}.`).join(" ")} Opens the contact section of my portfolio.`,
     body: `${secbar("Contact", "Inquiries &amp; Opportunities", "wings")}
       <div class="contact">

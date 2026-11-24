@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;800&display=block" rel="stylesheet" />
+<style>
+  /* README nav bar. render.mjs cuts it into one image per [data-slice] so each item can link to its own anchor. */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  .card {
+    position: relative; display: flex; align-items: stretch; width: 1000px; height: 60px;
+    border: 1px solid rgba(217,182,106,.28); border-radius: 12px; background: #0e0e12;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  /* gold rule along the top, fading out like the site's dividers */
+  .card::before { content: ""; position: absolute; left: 14px; right: 40%; top: -1px; height: 1px; background: linear-gradient(90deg, #d9b66a, rgba(217,182,106,.25) 70%, transparent); }
+  [data-slice] { display: flex; align-items: center; white-space: nowrap; }
+  .brand { flex: 1; gap: 11px; padding-left: 24px; font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -.005em; }
+  .brand i { width: 9px; height: 9px; background: #d0353f; transform: rotate(45deg); box-shadow: 0 0 10px rgba(208,53,63,.6); }
+  .item { gap: 9px; padding: 0 15px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.74); }
+  .item:last-child { padding-right: 24px; }
+  .item i { width: 7px; height: 7px; border: 1.2px solid #d9b66a; transform: rotate(45deg); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand" data-slice="brand"><i></i>Justine James Prades</div>
+  __ITEMS__
+</div>
+</body>
+</html>

@@ -93,25 +93,8 @@ const channels = [
 export const DESC = "BSIT student at National University (NU Laguna). I build backend systems in Laravel: API contracts, databases, and integrations, then test them hard with sprint-level QA.";
 export const QUOTE = "I build the API, then try to break it.";
 
+// The hero banner is the About screen (as on the site), so there is no separate About card.
 export const cards = [
-  {
-    slug: "about", href: SITE,
-    alt: `About. Backend Developer and QA Engineer, BSIT at National University Laguna. ${stats.map(([k, v]) => `${k}: ${v}.`).join(" ")} ${DESC} "${QUOTE}" Opens my portfolio.`,
-    body: `${secbar("About", "Backend Developer &amp; QA Engineer", "scales")}
-      <div class="about">
-        <div>
-          <p class="lead">I build backend systems in Laravel, then test them until they <em>hold up</em>.</p>
-          <p class="body">${DESC}</p>
-          <p class="quote">"${QUOTE}"</p>
-        </div>
-        <div>
-          <p class="role">Backend Developer &amp; QA Engineer</p>
-          <p class="sub">BSIT · National University Laguna</p>
-          <div class="divider"></div>
-          <div class="stats">${stats.map(([k, v]) => `<div class="stat"><span>${k}</span><b>${v}</b></div>`).join("")}</div>
-        </div>
-      </div>`,
-  },
   {
     slug: "work", href: `${SITE}#work`,
     alt: `Projects. ${projects.map((p) => `${p.name}, ${p.meta}, built with ${p.tech.join(", ")}: ${p.details.join(" ")}`).join(" ")} Opens the projects section of my portfolio.`,
